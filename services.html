@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - Ganora Technologies</title>
+  <meta name="description"
+    content="Six precision-crafted service disciplines - from bespoke web experiences to intelligent AI systems - built to grow with your business." />
+  <meta property="og:title" content="Services - Ganora Technologies" />
+  <meta property="og:description"
+    content="Web development, UI/UX design, WordPress, AI integration, automation, and ongoing support." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ganoratech.com/services.html" />
+  <meta property="og:image" content="https://ganoratech.com/assets/ganora_logo.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://ganoratech.com/services.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════
+   RESET & ROOT
+═══════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --gold: #D4AF37;
+      --gold-light: #f0d060;
+      --gold-dim: #7a6010;
+      --gold-ghost: rgba(212, 175, 55, .07);
+      --gold-border: rgba(212, 175, 55, .16);
+      --gold-border-hot: rgba(212, 175, 55, .5);
+      --bg: #080808;
+      --bg-2: #0b0b0b;
+      --bg-3: #0e0e0e;
+      --surface: rgba(255, 255, 255, .024);
+      --surface-hover: rgba(255, 255, 255, .038);
+      --t: #ede8dc;
+      --t-mid: #7a7060;
+      --t-dim: #38322a;
+      --ff: 'Cormorant Garamond', serif;
+      --fs: 'DM Sans', sans-serif;
+      --fm: 'Space Mono', monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --radius: 3px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--t);
+      font-family: var(--fs);
+      overflow-x: hidden;
+      cursor: default;
+      line-height: 1.6;
+    }
+
+    /* Film grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      opacity: .016;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+    .rv {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .85s var(--ease), transform .85s var(--ease)
+    }
+
+    .rl {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity .85s var(--ease), transform .85s var(--ease)
+    }
+
+    .rr {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity .85s var(--ease), transform .85s var(--ease)
+    }
+
+    .rv.in,
+    .rl.in,
+    .rr.in {
+      opacity: 1;
+      transform: none
+    }
+
+    /* ═══════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════ */
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center
+      }
+
+      100% {
+        background-position: 200% center
+      }
+    }
+
+    @keyframes orbPulse {
+
+      0%,
+      100% {
+        opacity: .5;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .75;
+        transform: scale(1.05)
+      }
+    }
+
+    @keyframes barDrop {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top
+      }
+
+      51% {
+        transform-origin: bottom
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom
+      }
+    }
+
+    @keyframes rotateSlow {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes mqScroll {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    @keyframes floatA {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    @keyframes floatB {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-7px)
+      }
+    }
+
+    @keyframes floatC {
+
+      0%,
+      100% {
+        transform: translateY(-4px)
+      }
+
+      50% {
+        transform: translateY(6px)
+      }
+    }
+
+    @keyframes dotPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(.7)
+      }
+    }
+
+    /* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(6rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8vw) clamp(4rem, 7vw, 6rem);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212, 175, 55, .022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, .022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 65% 65% at 58% 48%, black 15%, transparent 78%);
+      pointer-events: none;
+    }
+
+    .hero-line {
+      position: absolute;
+      top: 0;
+      right: 20%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(transparent 0%, rgba(212, 175, 55, .1) 30%, rgba(212, 175, 55, .16) 58%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-orb-1 {
+      position: absolute;
+      top: 28%;
+      right: 6%;
+      width: clamp(340px, 50vw, 680px);
+      height: clamp(340px, 50vw, 680px);
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, .065) 0%, transparent 62%);
+      filter: blur(55px);
+      animation: orbPulse 10s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero-orb-2 {
+      position: absolute;
+      bottom: 12%;
+      left: 4%;
+      width: clamp(180px, 26vw, 340px);
+      height: clamp(180px, 26vw, 340px);
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, .035) 0%, transparent 70%);
+      filter: blur(70px);
+      animation: orbPulse 14s ease-in-out infinite reverse;
+      pointer-events: none;
+    }
+
+    .hero-ring {
+      position: absolute;
+      top: 50%;
+      right: 13%;
+      width: clamp(200px, 25vw, 360px);
+      height: clamp(200px, 25vw, 360px);
+      transform: translate(0, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, .055);
+      pointer-events: none;
+    }
+
+    .hero-ring::before {
+      content: '';
+      position: absolute;
+      inset: -18px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, .032);
+    }
+
+    .hero-ring-inner {
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, .09);
+      animation: rotateSlow 32s linear infinite;
+    }
+
+    .hero-ring-inner::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      transform: translateX(-50%);
+      box-shadow: 0 0 14px rgba(212, 175, 55, .75);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--fm);
+      font-size: clamp(8px, 1.4vw, 10px);
+      letter-spacing: .4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: clamp(1.25rem, 3vw, 2rem);
+      animation: heroFadeUp .9s var(--ease) .1s both;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: var(--ff);
+      font-size: clamp(3rem, 8.5vw, 9.5rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -.025em;
+      margin-bottom: clamp(1rem, 2.2vw, 1.75rem);
+      animation: heroFadeUp 1s var(--ease) .26s both;
+    }
+
+    .hero-title-em {
+      font-style: italic;
+      display: block;
+      background: linear-gradient(120deg, var(--gold-light) 0%, var(--gold) 40%, var(--gold-dim) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4.5s linear 1.4s infinite;
+    }
+
+    .hero-sub {
+      font-family: var(--ff);
+      font-size: clamp(.95rem, 1.8vw, 1.25rem);
+      font-style: italic;
+      color: var(--t-mid);
+      max-width: 460px;
+      line-height: 1.9;
+      animation: heroFadeUp .9s var(--ease) .46s both;
+    }
+
+    /* tier badges row */
+    .hero-tiers {
+      display: flex;
+      gap: clamp(.75rem, 2vw, 1.5rem);
+      margin-top: clamp(2rem, 4vw, 3.5rem);
+      flex-wrap: wrap;
+      animation: heroFadeUp .9s var(--ease) .6s both;
+    }
+
+    .tier-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: .35rem 1rem;
+      border: 1px solid var(--gold-border);
+      border-radius: 2px;
+      font-family: var(--fm);
+      font-size: clamp(7px, 1.1vw, 8.5px);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .tier-chip.core {
+      color: var(--gold);
+      border-color: rgba(212, 175, 55, .32);
+      background: rgba(212, 175, 55, .06)
+    }
+
+    .tier-chip.growth {
+      color: var(--t-mid);
+      border-color: rgba(212, 175, 55, .14)
+    }
+
+    .tier-chip.support {
+      color: var(--t-dim);
+      border-color: rgba(255, 255, 255, .06)
+    }
+
+    .tier-chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tier-chip.core .tier-chip-dot {
+      background: var(--gold);
+      box-shadow: 0 0 6px rgba(212, 175, 55, .7);
+      animation: dotPulse 2s ease-in-out infinite
+    }
+
+    .tier-chip.growth .tier-chip-dot {
+      background: rgba(212, 175, 55, .5)
+    }
+
+    .tier-chip.support .tier-chip-dot {
+      background: rgba(255, 255, 255, .2)
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: heroFadeUp 1s var(--ease) 1.1s both;
+    }
+
+    .hero-scroll span {
+      font-family: var(--fm);
+      font-size: 7.5px;
+      letter-spacing: .32em;
+      color: var(--t-dim);
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-bar {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(var(--gold), transparent);
+      animation: barDrop 2.6s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════════
+   TIER DIVIDERS
+═══════════════════════════════════════ */
+    .tier-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.5rem, 8vw, 8vw);
+      background: var(--bg-2);
+      border-top: 1px solid rgba(212, 175, 55, .07);
+      border-bottom: 1px solid rgba(212, 175, 55, .07);
+    }
+
+    .tier-divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(212, 175, 55, .08)
+    }
+
+    .tier-divider-text {
+      font-family: var(--fm);
+      font-size: clamp(7.5px, 1.2vw, 9px);
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tier-divider-text.core {
+      color: var(--gold)
+    }
+
+    .tier-divider-text.growth {
+      color: var(--t-mid)
+    }
+
+    .tier-divider-text.support {
+      color: var(--t-dim)
+    }
+
+    .tier-divider-indicator {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tier-divider-text.core .tier-divider-indicator {
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(212, 175, 55, .6)
+    }
+
+    .tier-divider-text.growth .tier-divider-indicator {
+      background: rgba(212, 175, 55, .5)
+    }
+
+    .tier-divider-text.support .tier-divider-indicator {
+      background: rgba(255, 255, 255, .2)
+    }
+
+    /* ═══════════════════════════════════════
+   SECTION LABEL
+═══════════════════════════════════════ */
+    .sec-label {
+      font-family: var(--fm);
+      font-size: 8.5px;
+      letter-spacing: .4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+    }
+
+    .sec-label::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+   SERVICES SECTION
+═══════════════════════════════════════ */
+    .services {
+      padding: 0
+    }
+
+    .service-block {
+      position: relative;
+      border-top: 1px solid rgba(212, 175, 55, .09);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 72vh;
+      align-items: center;
+      overflow: hidden;
+      transition: border-color .6s;
+    }
+
+    /* core tier blocks get a subtle gold tint */
+    .service-block.tier-core {
+      background: linear-gradient(160deg, rgba(212, 175, 55, .012) 0%, transparent 50%);
+    }
+
+    .service-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 38% 55% at var(--orb-x, 70%) var(--orb-y, 50%), rgba(212, 175, 55, .038), transparent 70%);
+      opacity: 0;
+      transition: opacity .7s;
+      pointer-events: none;
+    }
+
+    .service-block:hover::before {
+      opacity: 1
+    }
+
+    .service-block:hover {
+      border-top-color: rgba(212, 175, 55, .2)
+    }
+
+    .service-block.flip {
+      direction: rtl
+    }
+
+    .service-block.flip>* {
+      direction: ltr
+    }
+
+    /* ── Content pane ── */
+    .sb-content {
+      padding: clamp(2.5rem, 5.5vw, 5.5rem) clamp(1.5rem, 7vw, 7vw);
+      position: relative;
+      z-index: 2;
+    }
+
+    .sb-tier-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: .85rem;
+      font-family: var(--fm);
+      font-size: 7.5px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    .sb-tier-tag.core {
+      color: var(--gold)
+    }
+
+    .sb-tier-tag-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .sb-tier-tag.core .sb-tier-tag-dot {
+      box-shadow: 0 0 6px rgba(212, 175, 55, .7);
+      animation: dotPulse 2.2s ease-in-out infinite;
+    }
+
+    .sb-num {
+      font-family: var(--fm);
+      font-size: 8px;
+      letter-spacing: .35em;
+      color: var(--t-dim);
+      text-transform: uppercase;
+      margin-bottom: .7rem;
+    }
+
+    .sb-heading {
+      font-family: var(--ff);
+      font-size: clamp(1.9rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-bottom: 1.1rem;
+    }
+
+    .sb-heading i {
+      font-style: italic;
+      color: var(--gold)
+    }
+
+    .sb-divider {
+      width: 44px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 1.25rem;
+      transition: width .55s var(--ease);
+    }
+
+    .service-block:hover .sb-divider {
+      width: 88px
+    }
+
+    .sb-desc {
+      font-size: clamp(.8rem, 1.35vw, .88rem);
+      color: var(--t-mid);
+      line-height: 2;
+      max-width: 430px;
+      margin-bottom: 1.75rem;
+    }
+
+    .sb-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+    }
+
+    .sb-features li {
+      font-size: clamp(.76rem, 1.2vw, .81rem);
+      color: var(--t-mid);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      transition: color .3s;
+    }
+
+    .sb-features li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      border: 1px solid var(--t-dim);
+      flex-shrink: 0;
+      position: relative;
+      top: -.4px;
+      transition: border-color .3s, box-shadow .3s;
+    }
+
+    .service-block:hover .sb-features li {
+      color: var(--t)
+    }
+
+    .service-block:hover .sb-features li::before {
+      border-color: var(--gold);
+      box-shadow: 0 0 7px rgba(212, 175, 55, .45);
+    }
+
+    /* ── Cards pane ── */
+    .sb-cards {
+      position: relative;
+      padding: clamp(2rem, 4.5vw, 4.5rem) clamp(1.5rem, 4.5vw, 4.5vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(.85rem, 1.5vw, 1.25rem);
+      z-index: 2;
+    }
+
+    .sb-glyph-bg {
+      position: absolute;
+      font-family: var(--ff);
+      font-size: clamp(7rem, 14vw, 20rem);
+      font-weight: 600;
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(212, 175, 55, .038);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      bottom: -2%;
+      right: -1%;
+      transition: -webkit-text-stroke-color .7s;
+      will-change: transform;
+    }
+
+    .service-block:hover .sb-glyph-bg {
+      -webkit-text-stroke-color: rgba(212, 175, 55, .08)
+    }
+
+    /* Glass card */
+    .g-card {
+      position: relative;
+      background: rgba(255, 255, 255, .022);
+      border: 1px solid rgba(212, 175, 55, .12);
+      border-radius: var(--radius);
+      padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1.1rem, 2vw, 1.6rem);
+      backdrop-filter: blur(12px) saturate(130%);
+      -webkit-backdrop-filter: blur(12px) saturate(130%);
+      transition:
+        transform .5s var(--ease-back),
+        box-shadow .5s var(--ease),
+        border-color .5s,
+        background .5s;
+      overflow: hidden;
+    }
+
+    .g-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(212, 175, 55, .055) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    .g-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, .45), transparent);
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    .g-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .45), 0 0 0 1px rgba(212, 175, 55, .28), 0 0 36px rgba(212, 175, 55, .07);
+      border-color: rgba(212, 175, 55, .36);
+      background: rgba(255, 255, 255, .034);
+    }
+
+    .g-card:hover::before {
+      opacity: 1
+    }
+
+    .g-card:hover::after {
+      opacity: 1
+    }
+
+    .g-card:nth-child(1) {
+      animation: floatA 6.5s ease-in-out infinite
+    }
+
+    .g-card:nth-child(2) {
+      animation: floatB 8.5s ease-in-out infinite
+    }
+
+    .g-card:nth-child(3) {
+      animation: floatC 7.5s ease-in-out 1.2s infinite
+    }
+
+    .g-card-eyebrow {
+      font-family: var(--fm);
+      font-size: 7.5px;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .g-card-icon-sym {
+      font-size: .8rem;
+      color: var(--gold)
+    }
+
+    .g-card-title {
+      font-family: var(--ff);
+      font-size: clamp(.95rem, 1.8vw, 1.2rem);
+      font-weight: 400;
+      color: var(--t);
+      margin-bottom: .42rem;
+      line-height: 1.2;
+    }
+
+    .g-card-desc {
+      font-size: clamp(.73rem, 1.1vw, .78rem);
+      color: var(--t-mid);
+      line-height: 1.85;
+    }
+
+    /* corner accent */
+    .g-card-corner {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 28px;
+      height: 28px;
+      border-top: 1px solid rgba(212, 175, 55, .14);
+      border-left: 1px solid rgba(212, 175, 55, .14);
+      border-top-left-radius: 3px;
+      opacity: 0;
+      transition: opacity .45s;
+    }
+
+    .g-card:hover .g-card-corner {
+      opacity: 1
+    }
+
+    /* ═══════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════ */
+    .marquee-wrap {
+      padding: 0;
+      border-top: 1px solid rgba(212, 175, 55, .14);
+      border-bottom: 1px solid rgba(212, 175, 55, .14);
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(212, 175, 55, .028) 0%, transparent 18%, transparent 82%, rgba(212, 175, 55, .028) 100%), var(--bg-2);
+      position: relative;
+    }
+
+    /* Fade edges */
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: clamp(60px, 10vw, 160px);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg-2), transparent);
+    }
+
+    .marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--bg-2), transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: mqScroll 40s linear infinite;
+      padding: 1.35rem 0;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 0 2.25rem;
+      font-family: var(--fm);
+      font-size: clamp(.68rem, 1.1vw, .8rem);
+      letter-spacing: .22em;
+      color: rgba(237, 232, 220, .28);
+      text-transform: uppercase;
+      transition: color .4s, letter-spacing .4s;
+      position: relative;
+    }
+
+    .marquee-item:hover {
+      color: var(--gold);
+      letter-spacing: .3em;
+    }
+
+    /* Every 3rd item gets a gold accent by default */
+    .marquee-item:nth-child(3n+1) {
+      color: rgba(212, 175, 55, .45);
+    }
+
+    .marquee-item:nth-child(3n+1):hover {
+      color: var(--gold-light);
+    }
+
+    .marquee-sep {
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, .35);
+      vertical-align: middle;
+      margin-left: .2rem;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════ */
+    .process {
+      padding: clamp(4.5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8vw);
+      border-top: 1px solid rgba(212, 175, 55, .07);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(700px, 100vw);
+      height: min(700px, 100vw);
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, .028) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .process-inner {
+      max-width: 1240px;
+      margin: 0 auto
+    }
+
+    .process-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: clamp(2.5rem, 5vw, 5rem);
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .process-title {
+      font-family: var(--ff);
+      font-size: clamp(1.9rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      max-width: 500px;
+    }
+
+    .process-title i {
+      font-style: italic;
+      color: var(--gold)
+    }
+
+    .process-sub {
+      font-size: clamp(.78rem, 1.2vw, .83rem);
+      color: var(--t-mid);
+      max-width: 260px;
+      line-height: 1.9;
+      text-align: right;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+      gap: 0;
+    }
+
+    .steps::after {
+      content: '';
+      position: absolute;
+      top: 19px;
+      left: 9%;
+      right: 9%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, .1) 18%, rgba(212, 175, 55, .1) 82%, transparent);
+    }
+
+    .step {
+      padding-top: 1rem;
+      padding-right: 2rem;
+      position: relative
+    }
+
+    .step-node {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, .18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+      transition: border-color .45s, box-shadow .45s;
+    }
+
+    .step:hover .step-node {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 7px rgba(212, 175, 55, .045), 0 0 26px rgba(212, 175, 55, .18);
+    }
+
+    .step-node-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 9px rgba(212, 175, 55, .5);
+      transition: box-shadow .45s;
+    }
+
+    .step:hover .step-node-dot {
+      box-shadow: 0 0 18px rgba(212, 175, 55, .85)
+    }
+
+    .step-num {
+      font-family: var(--fm);
+      font-size: 7.5px;
+      letter-spacing: .24em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+
+    .step-h {
+      font-family: var(--ff);
+      font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+      font-weight: 300;
+      color: var(--t);
+      margin-bottom: .5rem;
+      line-height: 1.15;
+      transition: color .35s;
+    }
+
+    .step:hover .step-h {
+      color: var(--gold-light)
+    }
+
+    .step-d {
+      font-size: clamp(.74rem, 1.15vw, .79rem);
+      color: var(--t-mid);
+      line-height: 1.9
+    }
+
+    /* ═══════════════════════════════════════
+   TRUST PILLARS
+═══════════════════════════════════════ */
+    .trust {
+      padding: clamp(4.5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8vw);
+      border-top: 1px solid rgba(212, 175, 55, .07);
+      background: var(--bg-2);
+    }
+
+    .trust-inner {
+      max-width: 1240px;
+      margin: 0 auto
+    }
+
+    .trust-title {
+      font-family: var(--ff);
+      font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: clamp(2.5rem, 4.5vw, 4.5rem);
+      max-width: 520px;
+    }
+
+    .trust-title i {
+      font-style: italic;
+      color: var(--gold)
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem
+    }
+
+    .pillar {
+      position: relative;
+      padding: 1.6rem 0 0;
+      border-top: 1px solid rgba(212, 175, 55, .09);
+      transition: border-top-color .45s;
+    }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transition: width .6s var(--ease);
+    }
+
+    .pillar:hover::before {
+      width: 100%
+    }
+
+    .pillar:hover {
+      border-top-color: transparent
+    }
+
+    .pillar-icon {
+      font-family: var(--fm);
+      font-size: 8px;
+      letter-spacing: .2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      transition: color .35s;
+    }
+
+    .pillar:hover .pillar-icon {
+      color: var(--gold)
+    }
+
+    .pillar-h {
+      font-family: var(--ff);
+      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+      font-weight: 300;
+      color: var(--t);
+      margin-bottom: .5rem;
+      transition: color .35s;
+    }
+
+    .pillar:hover .pillar-h {
+      color: var(--gold-light)
+    }
+
+    .pillar-d {
+      font-size: clamp(.74rem, 1.15vw, .79rem);
+      color: var(--t-mid);
+      line-height: 1.88
+    }
+
+    /* ═══════════════════════════════════════
+   TECH STACK
+═══════════════════════════════════════ */
+    .tech {
+      padding: clamp(4.5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8vw);
+      border-top: 1px solid rgba(212, 175, 55, .07);
+    }
+
+    .tech-inner {
+      max-width: 1240px;
+      margin: 0 auto
+    }
+
+    .tech-title {
+      font-family: var(--ff);
+      font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: clamp(2rem, 3.5vw, 3.5rem);
+      max-width: 520px;
+    }
+
+    .tech-title i {
+      font-style: italic;
+      color: var(--gold)
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0
+    }
+
+    .tech-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(212, 175, 55, .07);
+      position: relative;
+      overflow: hidden;
+      transition: border-bottom-color .35s;
+    }
+
+    .tech-row::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transition: width .5s var(--ease);
+    }
+
+    .tech-row:hover::after {
+      width: 100%
+    }
+
+    .tech-row:hover {
+      border-bottom-color: transparent
+    }
+
+    .tc-label {
+      font-family: var(--fm);
+      font-size: 7.5px;
+      letter-spacing: .24em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      transition: color .3s;
+    }
+
+    .tech-row:hover .tc-label {
+      color: var(--gold)
+    }
+
+    .tc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem
+    }
+
+    .tc-tag {
+      font-size: clamp(.68rem, 1.05vw, .73rem);
+      color: var(--t-mid);
+      border: 1px solid rgba(212, 175, 55, .09);
+      padding: .2rem .6rem;
+      border-radius: 2px;
+      letter-spacing: .05em;
+      transition: color .28s, border-color .28s, background .28s;
+    }
+
+    .tech-row:hover .tc-tag {
+      color: var(--t);
+      border-color: rgba(212, 175, 55, .25);
+      background: rgba(212, 175, 55, .038);
+    }
+
+    /* ═══════════════════════════════════════
+   CTA
+═══════════════════════════════════════ */
+    .cta-section {
+      padding: clamp(4.5rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8vw);
+      border-top: 1px solid rgba(212, 175, 55, .07);
+    }
+
+    .cta-card {
+      max-width: 880px;
+      margin: 0 auto;
+      border: 1px solid rgba(212, 175, 55, .22);
+      background: rgba(255, 255, 255, .012);
+      padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      transition: border-color .55s, box-shadow .55s;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(212, 175, 55, .045) 0%, transparent 52%, rgba(212, 175, 55, .025) 100%);
+      opacity: 0;
+      transition: opacity .55s;
+      pointer-events: none;
+    }
+
+    .cta-card:hover {
+      border-color: rgba(212, 175, 55, .45);
+      box-shadow: 0 0 90px rgba(212, 175, 55, .055), 0 0 180px rgba(212, 175, 55, .025);
+    }
+
+    .cta-card:hover::before {
+      opacity: 1
+    }
+
+    .cta-orb {
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(550px, 100vw);
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, .072), transparent 65%);
+      pointer-events: none;
+      filter: blur(45px);
+    }
+
+    .cta-eye {
+      font-family: var(--fm);
+      font-size: 8.5px;
+      letter-spacing: .36em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .cta-h {
+      font-family: var(--ff);
+      font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-h i {
+      font-style: italic;
+      display: block;
+      color: var(--gold)
+    }
+
+    .cta-sub {
+      font-family: var(--ff);
+      font-style: italic;
+      color: var(--t-mid);
+      font-size: clamp(.9rem, 1.7vw, 1.1rem);
+      margin-bottom: 2.75rem;
+      position: relative;
+    }
+
+    .cta-btn {
+      position: relative;
+      display: inline-block;
+      padding: 1rem 3.25rem;
+      background: linear-gradient(135deg, #c09018, #f0d060, #c09018);
+      background-size: 200% 200%;
+      color: #050505;
+      font-family: var(--fs);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      overflow: hidden;
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease), background-position .55s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 55px rgba(212, 175, 55, .35);
+      background-position: right center;
+    }
+
+    .cta-shine {
+      position: absolute;
+      top: 0;
+      left: -110%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+      transform: skewX(-18deg);
+      transition: left .5s var(--ease);
+    }
+
+    .cta-btn:hover .cta-shine {
+      left: 155%
+    }
+
+    /* ═══════════════════════════════════════
+   RESPONSIVE - TABLET ≤ 1024px
+═══════════════════════════════════════ */
+    @media(max-width:1024px) {
+      .service-block {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        direction: ltr;
+      }
+
+      .service-block.flip {
+        direction: ltr
+      }
+
+      .sb-cards {
+        min-height: 280px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1.5rem clamp(1.5rem, 5vw, 5vw) 2.5rem;
+      }
+
+      .g-card {
+        flex: 1 1 190px;
+        min-width: 0
+      }
+
+      .sb-glyph-bg {
+        display: none
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.25rem
+      }
+
+      .steps::after {
+        display: none
+      }
+
+      .pillars {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem
+      }
+
+      .tech-row {
+        grid-template-columns: 110px 1fr;
+        gap: 1.25rem
+      }
+
+      .process-header {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .process-sub {
+        text-align: left;
+        max-width: 100%
+      }
+
+      .hero-ring,
+      .hero-line {
+        display: none
+      }
+    }
+
+    /* ═══════════════════════════════════════
+   RESPONSIVE - MOBILE ≤ 640px
+═══════════════════════════════════════ */
+    @media(max-width:640px) {
+      .hero {
+        padding: 6.5rem 1.25rem 4.5rem;
+        min-height: 100svh;
+        align-items: flex-start;
+      }
+
+      .hero-orb-1,
+      .hero-orb-2 {
+        filter: blur(70px)
+      }
+
+      .hero-scroll {
+        display: none
+      }
+
+      .hero-tiers {
+        gap: .5rem
+      }
+
+      .tier-divider {
+        padding: 1rem 1.25rem
+      }
+
+      .tier-divider-line {
+        display: none
+      }
+
+      .sb-content {
+        padding: 2.25rem 1.25rem;
+      }
+
+      .sb-cards {
+        flex-direction: column;
+        padding: 0 1.25rem 2.25rem;
+        gap: .85rem;
+      }
+
+      .g-card {
+        animation: none !important
+      }
+
+      .g-card:hover {
+        transform: translateY(-4px)
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      .step {
+        padding-right: 0
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+        gap: 1.25rem
+      }
+
+      .tech-row {
+        grid-template-columns: 1fr;
+        gap: .4rem;
+        padding: 1.1rem 0;
+      }
+
+      .tc-label {
+        margin-bottom: .15rem
+      }
+
+      .process-sub {
+        display: none
+      }
+
+      .cta-card {
+        padding: 2.75rem 1.25rem
+      }
+
+      .cta-btn {
+        padding: .88rem 2.25rem;
+        font-size: .65rem;
+        letter-spacing: .17em;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════ HEADER (component) ══════════ -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+    <section class="hero" aria-label="Services hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-line" aria-hidden="true"></div>
+      <div class="hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb-2" aria-hidden="true"></div>
+      <div class="hero-ring" aria-hidden="true">
+        <div class="hero-ring-inner"></div>
+      </div>
+
+      <p class="hero-eyebrow">Our Services</p>
+      <h1 class="hero-title">
+        What We<br />
+        <span class="hero-title-em">Build</span>
+      </h1>
+      <p class="hero-sub">Six precision-crafted service disciplines - from bespoke web experiences to intelligent
+        systems - built to grow with your business.</p>
+
+      <div class="hero-tiers" aria-label="Service tiers">
+        <span class="tier-chip core"><span class="tier-chip-dot" aria-hidden="true"></span>Core Services</span>
+        <span class="tier-chip growth"><span class="tier-chip-dot" aria-hidden="true"></span>Growth Services</span>
+        <span class="tier-chip support"><span class="tier-chip-dot" aria-hidden="true"></span>Support</span>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Explore</span>
+        <div class="hero-scroll-bar"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+     CORE SERVICES TIER
+══════════════════════════════════ -->
+    <div class="tier-divider" aria-hidden="true">
+      <div class="tier-divider-line"></div>
+      <span class="tier-divider-text core">
+        <span class="tier-divider-indicator"></span>
+        Core Services - Foundation of Excellence
+      </span>
+      <div class="tier-divider-line"></div>
+    </div>
+
+    <section class="services" aria-label="Core services">
+
+      <!-- 01 Web Development -->
+      <div class="service-block tier-core" data-service="1" id="service-web">
+        <div class="sb-content">
+          <p class="sb-num rv">01 - Development</p>
+          <p class="sb-tier-tag core rv" style="transition-delay:.04s"><span class="sb-tier-tag-dot"></span>Core Service
+          </p>
+          <h2 class="sb-heading rv" style="transition-delay:.08s">Web<br /><i>Development</i></h2>
+          <div class="sb-divider rv" style="transition-delay:.13s"></div>
+          <p class="sb-desc rv" style="transition-delay:.18s">Custom-built websites and web applications designed for
+            performance, clarity, and measurable results. Every detail serves a purpose - from architecture to the final
+            interaction.</p>
+          <ul class="sb-features rv" style="transition-delay:.24s">
+            <li>Custom front-end engineering (HTML, CSS, JS)</li>
+            <li>React &amp; Next.js application development</li>
+            <li>Headless, API-first architecture</li>
+            <li>Core Web Vitals–optimised for 95+ scores</li>
+            <li>Conversion-focused user flows and layouts</li>
+            <li>Semantic, SEO-structured markup</li>
+          </ul>
+        </div>
+        <div class="sb-cards">
+          <div class="sb-glyph-bg" aria-hidden="true">W</div>
+          <div class="g-card rr" style="transition-delay:.08s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◈</span> Frontend</div>
+            <div class="g-card-title">React &amp; Next.js</div>
+            <div class="g-card-desc">Component-driven applications with server-side rendering and static generation for
+              fast, reliable experiences at scale.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rr" style="transition-delay:.18s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">⚡</span> Performance</div>
+            <div class="g-card-title">95+ PageSpeed Score</div>
+            <div class="g-card-desc">Performance built in from the start - image optimisation, edge delivery, and lazy
+              loading as standard, never as an afterthought.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rr" style="transition-delay:.28s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">∞</span> Architecture</div>
+            <div class="g-card-title">Headless &amp; API-First</div>
+            <div class="g-card-desc">Decoupled systems built to handle growth - your highest traffic moments, handled
+              with zero compromise on stability.</div>
+            <div class="g-card-corner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 UI/UX Design -->
+      <div class="service-block tier-core flip" data-service="2" id="service-design">
+        <div class="sb-content">
+          <p class="sb-num rv">02 - Design</p>
+          <p class="sb-tier-tag core rv" style="transition-delay:.04s"><span class="sb-tier-tag-dot"></span>Core Service
+          </p>
+          <h2 class="sb-heading rv" style="transition-delay:.08s">UI / UX<br /><i>Design</i></h2>
+          <div class="sb-divider rv" style="transition-delay:.13s"></div>
+          <p class="sb-desc rv" style="transition-delay:.18s">Interfaces that feel effortless. We design experiences
+            that guide users naturally, reduce friction, and build the kind of trust that keeps people coming back.</p>
+          <ul class="sb-features rv" style="transition-delay:.24s">
+            <li>User research &amp; journey mapping</li>
+            <li>Wireframing &amp; interactive prototyping in Figma</li>
+            <li>Design system &amp; component library creation</li>
+            <li>Pixel-perfect developer handoff</li>
+            <li>Accessibility &amp; WCAG 2.2 compliance</li>
+            <li>Motion design &amp; micro-interactions</li>
+          </ul>
+        </div>
+        <div class="sb-cards">
+          <div class="sb-glyph-bg" aria-hidden="true">UI</div>
+          <div class="g-card rl" style="transition-delay:.08s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◎</span> Figma</div>
+            <div class="g-card-title">Interactive Prototyping</div>
+            <div class="g-card-desc">High-fidelity prototypes that bring your product to life - fully navigable before a
+              single line of code is written.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rl" style="transition-delay:.18s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◈</span> Systems</div>
+            <div class="g-card-title">Design System Architecture</div>
+            <div class="g-card-desc">Scalable component libraries that ensure visual consistency and speed up every
+              future update across your brand.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rl" style="transition-delay:.28s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">∿</span> Motion</div>
+            <div class="g-card-title">Micro-Interactions &amp; Motion</div>
+            <div class="g-card-desc">Purposeful, restrained animations that add delight without distraction - creating a
+              polished, premium feel throughout.</div>
+            <div class="g-card-corner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 WordPress Development -->
+      <div class="service-block tier-core" data-service="3" id="service-wp">
+        <div class="sb-content">
+          <p class="sb-num rv">03 - CMS</p>
+          <p class="sb-tier-tag core rv" style="transition-delay:.04s"><span class="sb-tier-tag-dot"></span>Core Service
+          </p>
+          <h2 class="sb-heading rv" style="transition-delay:.08s">WordPress<br /><i>Development</i></h2>
+          <div class="sb-divider rv" style="transition-delay:.13s"></div>
+          <p class="sb-desc rv" style="transition-delay:.18s">Premium WordPress that goes far beyond templates. Custom
+            themes, complex functionality, and enterprise-grade builds your team can manage with confidence - no
+            developer required day-to-day.</p>
+          <ul class="sb-features rv" style="transition-delay:.24s">
+            <li>100% custom theme development from scratch</li>
+            <li>Advanced Custom Fields &amp; custom post types</li>
+            <li>WooCommerce &amp; multi-store e-commerce</li>
+            <li>Gutenberg block library creation</li>
+            <li>Headless WordPress with React front-end</li>
+            <li>Migration, consolidation &amp; performance rebuilds</li>
+          </ul>
+        </div>
+        <div class="sb-cards">
+          <div class="sb-glyph-bg" aria-hidden="true">WP</div>
+          <div class="g-card rr" style="transition-delay:.08s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◈</span> Themes</div>
+            <div class="g-card-title">Custom Theme Engineering</div>
+            <div class="g-card-desc">Zero page builders. Every theme built from scratch - fast, maintainable, and easy
+              for your editors to use confidently.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rr" style="transition-delay:.18s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">⚡</span> Commerce</div>
+            <div class="g-card-title">WooCommerce Builds</div>
+            <div class="g-card-desc">Complex product configurations, multi-currency stores, and tailored checkout flows
+              built to convert and grow.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rr" style="transition-delay:.28s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">∞</span> Headless</div>
+            <div class="g-card-title">Headless WordPress</div>
+            <div class="g-card-desc">WordPress powering a React front-end - the editorial simplicity you know, paired
+              with modern front-end performance.</div>
+            <div class="g-card-corner"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════
+     MARQUEE BREAK
+══════════════════════════════════ -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track" id="mqt"></div>
+    </div>
+
+    <!-- ══════════════════════════════════
+     GROWTH SERVICES TIER
+══════════════════════════════════ -->
+    <div class="tier-divider" aria-hidden="true">
+      <div class="tier-divider-line"></div>
+      <span class="tier-divider-text growth">
+        <span class="tier-divider-indicator"></span>
+        Growth Services - Intelligent Scale
+      </span>
+      <div class="tier-divider-line"></div>
+    </div>
+
+    <section class="services" aria-label="Growth services">
+
+      <!-- 04 AI Integration -->
+      <div class="service-block flip" data-service="4">
+        <div class="sb-content">
+          <p class="sb-num rv">04 - Intelligence</p>
+          <p class="sb-tier-tag rv" style="transition-delay:.04s"><span class="sb-tier-tag-dot"></span>Growth Service
+          </p>
+          <h2 class="sb-heading rv" style="transition-delay:.08s">AI Integration<br /><i>&amp; Automation</i></h2>
+          <div class="sb-divider rv" style="transition-delay:.13s"></div>
+          <p class="sb-desc rv" style="transition-delay:.18s">Connect the right AI tools to your workflows in a
+            practical, measured way. We identify where AI genuinely saves time, builds smarter systems, and delivers
+            real business value.</p>
+          <ul class="sb-features rv" style="transition-delay:.24s">
+            <li>AI chatbot and assistant integration</li>
+            <li>Content generation pipelines (text, image, data)</li>
+            <li>OpenAI, Claude &amp; Gemini API implementation</li>
+            <li>Knowledge base &amp; document Q&amp;A systems (RAG)</li>
+            <li>Predictive analytics and reporting dashboards</li>
+            <li>AI-powered workflow and task automation</li>
+          </ul>
+        </div>
+        <div class="sb-cards">
+          <div class="sb-glyph-bg" aria-hidden="true">AI</div>
+          <div class="g-card rl" style="transition-delay:.08s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◈</span> Language Models</div>
+            <div class="g-card-title">LLM Integration</div>
+            <div class="g-card-desc">Practical integration of GPT-4, Claude and Gemini into your product - reliable,
+              tested, and built for production use.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rl" style="transition-delay:.18s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">⚡</span> Smart Systems</div>
+            <div class="g-card-title">AI-Powered Workflows</div>
+            <div class="g-card-desc">Intelligent automations that handle repetitive tasks, surface insights, and reduce
+              manual effort across your team.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rl" style="transition-delay:.28s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">∞</span> Knowledge Systems</div>
+            <div class="g-card-title">Document Q&amp;A &amp; RAG</div>
+            <div class="g-card-desc">Allow your team or customers to query your own documents, policies, or data -
+              accurate, sourced answers in seconds.</div>
+            <div class="g-card-corner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Automation & Integrations -->
+      <div class="service-block" data-service="5" id="service-auto">
+        <div class="sb-content">
+          <p class="sb-num rv">05 - Automation</p>
+          <p class="sb-tier-tag rv" style="transition-delay:.04s"><span class="sb-tier-tag-dot"></span>Growth Service
+          </p>
+          <h2 class="sb-heading rv" style="transition-delay:.08s">Workflow<br /><i>Automation</i></h2>
+          <div class="sb-divider rv" style="transition-delay:.13s"></div>
+          <p class="sb-desc rv" style="transition-delay:.18s">Connect your tools, eliminate manual tasks, and let your
+            systems do the work. Smart integrations that save hours every week and scale quietly as your business grows.
+          </p>
+          <ul class="sb-features rv" style="transition-delay:.24s">
+            <li>CRM and marketing platform automation</li>
+            <li>Zapier, Make &amp; n8n workflow builds</li>
+            <li>Custom webhook &amp; REST API development</li>
+            <li>Payment and e-commerce order automation</li>
+            <li>Cross-platform data synchronisation</li>
+            <li>Error monitoring and alerting dashboards</li>
+          </ul>
+        </div>
+        <div class="sb-cards">
+          <div class="sb-glyph-bg" aria-hidden="true">∞</div>
+          <div class="g-card rr" style="transition-delay:.08s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◈</span> Workflows</div>
+            <div class="g-card-title">No-Code Orchestration</div>
+            <div class="g-card-desc">Zapier, Make.com, and n8n workflows connecting 500+ apps - built with proper error
+              handling and monitoring from day one.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rr" style="transition-delay:.18s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">⚡</span> API</div>
+            <div class="g-card-title">Custom API Integrations</div>
+            <div class="g-card-desc">Bespoke connections between any two platforms - if it has an API, we can integrate,
+              transform, and automate it.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rr" style="transition-delay:.28s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">∞</span> Scale</div>
+            <div class="g-card-title">Systems That Scale</div>
+            <div class="g-card-desc">Automation infrastructure built to handle growth - 10 or 10,000 daily tasks
+              processed with the same reliability.</div>
+            <div class="g-card-corner"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════
+     SUPPORT TIER
+══════════════════════════════════ -->
+    <div class="tier-divider" aria-hidden="true">
+      <div class="tier-divider-line"></div>
+      <span class="tier-divider-text support">
+        <span class="tier-divider-indicator"></span>
+        Support Service - Ongoing Partnership
+      </span>
+      <div class="tier-divider-line"></div>
+    </div>
+
+    <section class="services" aria-label="Support services">
+
+      <!-- 06 Maintenance & Support -->
+      <div class="service-block flip" data-service="6">
+        <div class="sb-content">
+          <p class="sb-num rv">06 - Support</p>
+          <p class="sb-tier-tag rv" style="transition-delay:.04s"><span class="sb-tier-tag-dot"></span>Support Service
+          </p>
+          <h2 class="sb-heading rv" style="transition-delay:.08s">Maintenance &amp;<br /><i>Support</i></h2>
+          <div class="sb-divider rv" style="transition-delay:.13s"></div>
+          <p class="sb-desc rv" style="transition-delay:.18s">Your website is a business asset that needs ongoing care.
+            We handle the technical upkeep so you stay focused on running your business - with the confidence that
+            everything is secure and up to date.</p>
+          <ul class="sb-features rv" style="transition-delay:.24s">
+            <li>Monthly core, plugin &amp; theme updates</li>
+            <li>24/7 uptime monitoring &amp; instant alerting</li>
+            <li>Malware removal &amp; security hardening</li>
+            <li>Daily encrypted off-site backups (30-day retention)</li>
+            <li>Regular performance health checks</li>
+            <li>Priority support with defined response SLAs</li>
+          </ul>
+        </div>
+        <div class="sb-cards">
+          <div class="sb-glyph-bg" aria-hidden="true">◈</div>
+          <div class="g-card rl" style="transition-delay:.08s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">◈</span> Security</div>
+            <div class="g-card-title">Proactive Security</div>
+            <div class="g-card-desc">Continuous vulnerability scanning, firewall management, and fast threat response -
+              before issues reach your users.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rl" style="transition-delay:.18s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">⚡</span> Uptime</div>
+            <div class="g-card-title">99.9% Uptime Guarantee</div>
+            <div class="g-card-desc">Real-time monitoring from multiple global locations with instant alerts - we know
+              about issues before you do.</div>
+            <div class="g-card-corner"></div>
+          </div>
+          <div class="g-card rl" style="transition-delay:.28s">
+            <div class="g-card-eyebrow"><span class="g-card-icon-sym">∞</span> Backups</div>
+            <div class="g-card-title">Daily Encrypted Backups</div>
+            <div class="g-card-desc">Automated daily snapshots stored off-site with 30-day retention - and one-click
+              restore when you need it most.</div>
+            <div class="g-card-corner"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════
+     PROCESS
+══════════════════════════════════ -->
+    <section class="process" aria-label="Our process">
+      <div class="process-inner">
+        <div class="process-header">
+          <div>
+            <p class="sec-label rv">How We Work</p>
+            <h2 class="process-title rv" style="transition-delay:.1s">A process built for<br /><i>clarity &amp;
+                momentum</i></h2>
+          </div>
+          <p class="process-sub rv" style="transition-delay:.2s">Four clear phases. Transparent milestones. No surprises
+            - only results, delivered on schedule.</p>
+        </div>
+        <div class="steps">
+          <div class="step rv">
+            <div class="step-node">
+              <div class="step-node-dot"></div>
+            </div>
+            <p class="step-num">01</p>
+            <h3 class="step-h">Discover</h3>
+            <p class="step-d">We take time to understand your goals, audience, and constraints before any decisions are
+              made.</p>
+          </div>
+          <div class="step rv" style="transition-delay:.1s">
+            <div class="step-node">
+              <div class="step-node-dot"></div>
+            </div>
+            <p class="step-num">02</p>
+            <h3 class="step-h">Design</h3>
+            <p class="step-d">Strategy becomes structure. Wireframes and prototypes agreed before development begins.
+            </p>
+          </div>
+          <div class="step rv" style="transition-delay:.2s">
+            <div class="step-node">
+              <div class="step-node-dot"></div>
+            </div>
+            <p class="step-num">03</p>
+            <h3 class="step-h">Build</h3>
+            <p class="step-d">Clean code, clear milestones, rigorous testing. Delivered on time, to spec, without
+              compromise.</p>
+          </div>
+          <div class="step rv" style="transition-delay:.3s">
+            <div class="step-node">
+              <div class="step-node-dot"></div>
+            </div>
+            <p class="step-num">04</p>
+            <h3 class="step-h">Scale</h3>
+            <p class="step-d">Launch is the start. We support, optimise, and evolve your product as your business grows.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+     TRUST PILLARS
+══════════════════════════════════ -->
+    <section class="trust" aria-label="Our standards">
+      <div class="trust-inner">
+        <p class="sec-label rv">Our Standards</p>
+        <h2 class="trust-title rv" style="transition-delay:.1s">Built for scale,<br /><i>performance &amp;
+            reliability</i></h2>
+        <div class="pillars">
+          <div class="pillar rv">
+            <div class="pillar-icon">⚡ Performance</div>
+            <h3 class="pillar-h">Performance-First</h3>
+            <p class="pillar-d">Every build starts with performance budgets. Speed engineered into the foundation -
+              never bolted on after the fact.</p>
+          </div>
+          <div class="pillar rv" style="transition-delay:.1s">
+            <div class="pillar-icon">∞ Scalable</div>
+            <h3 class="pillar-h">Built to Scale</h3>
+            <p class="pillar-d">Architecture that handles growth without breaking. From launch day to your busiest
+              traffic spike - the system holds.</p>
+          </div>
+          <div class="pillar rv" style="transition-delay:.2s">
+            <div class="pillar-icon">◈ Secure</div>
+            <h3 class="pillar-h">Secure by Design</h3>
+            <p class="pillar-d">Security hardening, encrypted backups, and proactive monitoring built into every project
+              we deliver.</p>
+          </div>
+          <div class="pillar rv" style="transition-delay:.3s">
+            <div class="pillar-icon">◎ Modern</div>
+            <h3 class="pillar-h">Modern Technology</h3>
+            <p class="pillar-d">The right tool for each job - no outdated frameworks, always maintainable, and properly
+              documented for your team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+     TECH STACK
+══════════════════════════════════ -->
+    <section class="tech" aria-label="Technology stack">
+      <div class="tech-inner">
+        <p class="sec-label rv">Technology</p>
+        <h2 class="tech-title rv" style="transition-delay:.1s">Powered by<br /><i>proven technologies</i></h2>
+        <div class="tech-grid">
+          <div class="tech-row rv">
+            <span class="tc-label">Frontend</span>
+            <div class="tc-tags">
+              <span class="tc-tag">HTML5</span><span class="tc-tag">CSS3</span><span class="tc-tag">JavaScript</span>
+              <span class="tc-tag">React</span><span class="tc-tag">Next.js</span><span
+                class="tc-tag">TypeScript</span><span class="tc-tag">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="tech-row rv" style="transition-delay:.07s">
+            <span class="tc-label">WordPress</span>
+            <div class="tc-tags">
+              <span class="tc-tag">Custom Themes</span><span class="tc-tag">ACF Pro</span><span
+                class="tc-tag">WooCommerce</span>
+              <span class="tc-tag">Gutenberg</span><span class="tc-tag">Headless WP</span>
+            </div>
+          </div>
+          <div class="tech-row rv" style="transition-delay:.14s">
+            <span class="tc-label">AI &amp; APIs</span>
+            <div class="tc-tags">
+              <span class="tc-tag">OpenAI GPT-4o</span><span class="tc-tag">Claude API</span><span
+                class="tc-tag">Gemini</span>
+              <span class="tc-tag">LangChain</span><span class="tc-tag">RAG Systems</span>
+            </div>
+          </div>
+          <div class="tech-row rv" style="transition-delay:.21s">
+            <span class="tc-label">Automation</span>
+            <div class="tc-tags">
+              <span class="tc-tag">Zapier</span><span class="tc-tag">Make.com</span><span class="tc-tag">n8n</span>
+              <span class="tc-tag">REST APIs</span><span class="tc-tag">Webhooks</span><span
+                class="tc-tag">GraphQL</span>
+            </div>
+          </div>
+          <div class="tech-row rv" style="transition-delay:.28s">
+            <span class="tc-label">Design</span>
+            <div class="tc-tags">
+              <span class="tc-tag">Figma</span><span class="tc-tag">Framer</span><span class="tc-tag">Adobe XD</span>
+              <span class="tc-tag">Lottie</span><span class="tc-tag">Spline</span>
+            </div>
+          </div>
+          <div class="tech-row rv" style="transition-delay:.35s">
+            <span class="tc-label">Infrastructure</span>
+            <div class="tc-tags">
+              <span class="tc-tag">Cloudflare</span><span class="tc-tag">Vercel</span><span class="tc-tag">Redis</span>
+              <span class="tc-tag">Lighthouse CI</span><span class="tc-tag">CDN Edge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+     CTA
+══════════════════════════════════ -->
+    <section class="cta-section" aria-label="Start a project">
+      <div class="cta-card rv">
+        <div class="cta-orb" aria-hidden="true"></div>
+        <p class="cta-eye">Start a Project</p>
+        <h2 class="cta-h">Let's Build Something<br /><i>That Lasts</i></h2>
+        <p class="cta-sub">The right conversation changes everything.</p>
+        <a href="contact.html" class="cta-btn">
+          <span class="cta-shine" aria-hidden="true"></span>
+          <span style="position:relative;z-index:1">Begin the Conversation</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════ FOOTER (component) ══════════ -->
+  <div id="footer"></div>
+
+  <script>
+    /* ── COMPONENT LOADER ── */
+    function loadComponent(id, file) {
+      fetch(file)
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(html => {
+          const el = document.getElementById(id);
+          el.innerHTML = html;
+          el.querySelectorAll('script').forEach(old => {
+            const s = document.createElement('script');
+            s.textContent = old.textContent;
+            Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
+            document.body.appendChild(s);
+          });
+        })
+        .catch(e => console.warn('Component not loaded:', file, e));
+    }
+    loadComponent('header', 'header.html');
+    loadComponent('footer', 'footer.html');
+
+    /* ── SCROLL REVEAL ── */
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.rv, .rl, .rr').forEach(el => ro.observe(el));
+
+    /* ── MARQUEE BUILD ── */
+    const mqWords = [
+      'Web Development', 'UI Design', 'AI Integration', 'Workflow Automation',
+      'WordPress', 'Maintenance', 'Next.js', 'Figma', 'React',
+      'OpenAI', 'WooCommerce', 'Performance', 'Security', 'LLMs', 'Smart Systems'
+    ];
+    const mqt = document.getElementById('mqt');
+    if (mqt) {
+      const doubled = [...mqWords, ...mqWords];
+      mqt.innerHTML = doubled.map(w =>
+        `<span class="marquee-item">${w}<span class="marquee-sep"></span></span>`
+      ).join('');
+    }
+
+    /* ── CARD FLOAT PAUSE ON HOVER ── */
+    document.querySelectorAll('.g-card').forEach(card => {
+      card.addEventListener('mouseenter', () => card.style.animationPlayState = 'paused');
+      card.addEventListener('mouseleave', () => card.style.animationPlayState = 'running');
+    });
+
+    /* ── MOUSE ORB TRACKING (desktop only) ── */
+    const isMobile = window.matchMedia('(max-width:640px)').matches;
+
+    if (!isMobile) {
+      document.querySelectorAll('.service-block').forEach(block => {
+        block.addEventListener('mousemove', e => {
+          const r = block.getBoundingClientRect();
+          block.style.setProperty('--orb-x', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+          block.style.setProperty('--orb-y', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+        });
+      });
+    }
+
+    /* ── LIGHTWEIGHT GLYPH PARALLAX (desktop, rAF-throttled) ── */
+    if (!isMobile) {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const sy = window.scrollY;
+            document.querySelectorAll('.sb-glyph-bg').forEach((el, i) => {
+              el.style.transform = `translateY(${(i % 2 === 0 ? 1 : -1) * sy * 0.022}px)`;
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+
+</html>

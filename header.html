@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganora Technologies — Header</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:wght@300;400&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #D4AF37;
+      --gold-lt: #F0D060;
+      --gold-dim: #B8952A;
+      --gold-glow: rgba(212, 175, 55, 0.35);
+      --white: #F4F4EF;
+      --muted: #7A7A72;
+      --bg: #070707;
+      --glass: rgba(6, 6, 6, 0.88);
+      --glass-deep: rgba(4, 4, 4, 0.96);
+      --border-gold: rgba(212, 175, 55, 0.12);
+      --ease: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --t-fast: 0.20s;
+      --t-mid: 0.36s;
+      --t-slow: 0.54s;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 200vh;
+      cursor: default;
+    }
+
+    /* ══════════════════════════════════
+       HEADER SHELL
+    ══════════════════════════════════ */
+    #ganora-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 74px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 52px;
+      background: transparent;
+      transition:
+        background var(--t-mid) var(--ease),
+        border-color var(--t-mid) var(--ease),
+        height var(--t-mid) var(--ease),
+        box-shadow var(--t-mid) var(--ease),
+        backdrop-filter var(--t-mid) var(--ease);
+    }
+
+    #ganora-header.scrolled {
+      background: var(--glass);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid var(--border-gold);
+      height: 62px;
+      box-shadow:
+        0 0 0 0.5px rgba(212, 175, 55, 0.05),
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 4px 16px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Gold underline shimmer on scroll */
+    #ganora-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(212, 175, 55, 0.35) 25%,
+          rgba(240, 208, 96, 0.60) 50%,
+          rgba(212, 175, 55, 0.35) 75%,
+          transparent);
+      opacity: 0;
+      transition: opacity var(--t-mid) var(--ease);
+      pointer-events: none;
+    }
+
+    #ganora-header.scrolled::after {
+      opacity: 1;
+    }
+
+    /* ══════════════════════════════════
+       LOGO
+    ══════════════════════════════════ */
+    .g-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    .g-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      line-height: 1;
+    }
+
+    .g-logo-name {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.30em;
+      background: linear-gradient(115deg, #FFFFFF 20%, var(--gold-lt) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      transition: letter-spacing var(--t-slow) var(--ease);
+    }
+
+    .g-logo:hover .g-logo-name {
+      letter-spacing: 0.36em;
+    }
+
+    .g-logo-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 8px;
+      letter-spacing: 0.46em;
+      color: var(--gold);
+      opacity: 0.60;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    @keyframes g-logo-breathe {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.12));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 11px rgba(212, 175, 55, 0.42));
+      }
+    }
+
+    .g-logo-mark {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      flex-shrink: 0;
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: none;
+      animation: g-logo-breathe 3.6s ease-in-out infinite;
+      transition: transform .4s var(--ease);
+    }
+
+    .g-logo:hover .g-logo-mark {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 18px rgba(212, 175, 55, .62));
+      animation-play-state: paused;
+    }
+
+    /* SVG icon mark — geometric G */
+    .g-logo-mark svg {
+      width: 100%;
+      height: 100%;
+      transition: filter var(--t-mid) var(--ease), transform var(--t-fast) var(--ease);
+    }
+
+    /*
+      Logo image crop strategy:
+      The JPEG is square. GT monogram lives in the top ~55% of the image,
+      horizontally centered (~18%–82%).
+      We scale the image to 175% of container width and offset it so only
+      the GT mark region is visible — black bg disappears via mix-blend-mode.
+    */
+    .g-logo-mark img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 175%;
+      height: auto;
+      margin-left: -36%;
+      margin-top: -2%;
+      mix-blend-mode: lighten;
+      filter: brightness(1.1) contrast(1.05);
+      display: block;
+      transition: filter .4s var(--ease);
+    }
+
+    .g-logo:hover .g-logo-mark img {
+      filter: brightness(1.25) contrast(1.08);
+    }
+
+    .g-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      line-height: 1;
+    }
+
+    .g-logo-name {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.32em;
+      color: var(--white);
+      background: linear-gradient(115deg, #FFFFFF 20%, var(--gold-lt) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      transition: letter-spacing var(--t-slow) var(--ease);
+    }
+
+    .g-logo:hover .g-logo-name {
+      letter-spacing: 0.38em;
+    }
+
+    .g-logo-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 8px;
+      letter-spacing: 0.48em;
+      color: var(--gold);
+      opacity: 0.65;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════
+       DESKTOP NAV
+    ══════════════════════════════════ */
+    .g-nav {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 4px;
+    }
+
+    .g-nav-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 2px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+    }
+
+    /* Underline */
+    .g-nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 16px;
+      right: 16px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--t-mid) var(--ease);
+      box-shadow: 0 0 6px var(--gold-glow);
+    }
+
+    .g-nav-link:hover,
+    .g-nav-link.active {
+      color: var(--white);
+      background: rgba(212, 175, 55, 0.04);
+    }
+
+    .g-nav-link:hover::after,
+    .g-nav-link.active::after {
+      transform: scaleX(1);
+    }
+
+    /* ══════════════════════════════════
+       RIGHT CLUSTER
+    ══════════════════════════════════ */
+    .g-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════
+       CTA BUTTON
+    ══════════════════════════════════ */
+    .g-cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: #080808;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+      border-radius: 2px;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+    }
+
+    /* Shine sweep */
+    .g-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.55s var(--ease);
+    }
+
+    .g-cta:hover::before {
+      left: 140%;
+    }
+
+    .g-cta:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.28),
+        0 12px 40px rgba(212, 175, 55, 0.42),
+        0 4px 12px rgba(0, 0, 0, 0.38);
+    }
+
+    .g-cta:active {
+      transform: scale(0.97) translateY(0);
+    }
+
+    .g-cta-label,
+    .g-cta-arrow {
+      position: relative;
+      z-index: 1;
+    }
+
+    .g-cta-arrow {
+      transition: transform var(--t-fast) var(--ease);
+      display: inline-block;
+    }
+
+    .g-cta:hover .g-cta-arrow {
+      transform: translateX(5px);
+    }
+
+    /* ══════════════════════════════════
+       HAMBURGER
+    ══════════════════════════════════ */
+    .g-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 6px;
+      width: 46px;
+      height: 46px;
+      background: none;
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 2px;
+      cursor: pointer;
+      padding: 12px 11px;
+      z-index: 1001;
+      flex-shrink: 0;
+      transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+    }
+
+    .g-burger:hover {
+      border-color: rgba(212, 175, 55, 0.40);
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .g-burger-bar {
+      display: block;
+      height: 1.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform var(--t-mid) var(--ease), opacity var(--t-fast) var(--ease), width var(--t-mid) var(--ease), background var(--t-fast) var(--ease);
+      transform-origin: center;
+    }
+
+    .g-burger-bar:nth-child(1) {
+      width: 22px;
+    }
+
+    .g-burger-bar:nth-child(2) {
+      width: 16px;
+    }
+
+    .g-burger-bar:nth-child(3) {
+      width: 22px;
+    }
+
+    .g-burger:hover .g-burger-bar {
+      background: var(--gold);
+    }
+
+    .g-burger:hover .g-burger-bar:nth-child(2) {
+      width: 22px;
+    }
+
+    .g-burger.is-open .g-burger-bar:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+      background: var(--gold);
+      width: 22px;
+    }
+
+    .g-burger.is-open .g-burger-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .g-burger.is-open .g-burger-bar:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+      background: var(--gold);
+      width: 22px;
+    }
+
+    /* ══════════════════════════════════
+       OVERLAY
+    ══════════════════════════════════ */
+    .g-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 998;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--t-slow) var(--ease);
+    }
+
+    .g-overlay.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ══════════════════════════════════
+       MOBILE DRAWER — SLIDE FROM RIGHT
+    ══════════════════════════════════ */
+    .g-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(360px, 88vw);
+      height: 100%;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      background: rgba(7, 7, 7, 0.98);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      border-left: 1px solid rgba(212, 175, 55, 0.14);
+      transform: translateX(100%);
+      opacity: 0;
+      transition: transform var(--t-slow) var(--ease), opacity var(--t-mid) var(--ease);
+      pointer-events: none;
+      box-shadow: -32px 0 80px rgba(0, 0, 0, 0.80);
+    }
+
+    /* Ambient gold in top-left corner of drawer */
+    .g-drawer::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, 0.08) 0%, transparent 65%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    /* Vertical gold accent line */
+    .g-drawer::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.40) 30%, rgba(240, 208, 96, 0.58) 50%, rgba(212, 175, 55, 0.40) 70%, transparent);
+    }
+
+    .g-drawer.is-open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── Drawer inner layout ── */
+    .g-drawer-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 0 36px 44px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* ── Drawer top bar ── */
+    .g-drawer-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+      flex-shrink: 0;
+    }
+
+    .g-drawer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-decoration: none;
+    }
+
+    .g-drawer-brand-name {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.30em;
+      color: var(--white);
+      background: linear-gradient(115deg, #FFFFFF 20%, var(--gold-lt) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .g-drawer-brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 6.5px;
+      letter-spacing: 0.46em;
+      color: var(--gold);
+      opacity: 0.45;
+      text-transform: uppercase;
+    }
+
+    /* ── Close button ── */
+    .g-drawer-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 2px;
+      cursor: pointer;
+      color: var(--muted);
+      transition:
+        background var(--t-fast) var(--ease),
+        border-color var(--t-fast) var(--ease),
+        color var(--t-fast) var(--ease),
+        transform var(--t-mid) var(--ease-back),
+        box-shadow var(--t-fast) var(--ease);
+      flex-shrink: 0;
+    }
+
+    .g-drawer-close:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: rgba(212, 175, 55, 0.42);
+      color: var(--gold);
+      transform: rotate(90deg);
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.18);
+    }
+
+    .g-close-icon {
+      width: 15px;
+      height: 15px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .g-close-icon::before,
+    .g-close-icon::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: currentColor;
+      border-radius: 2px;
+    }
+
+    .g-close-icon::before {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .g-close-icon::after {
+      transform: translateY(-50%) rotate(-45deg);
+    }
+
+    /* ── Divider ── */
+    .g-drawer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.18), rgba(212, 175, 55, 0.06) 70%, transparent);
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    /* ── Nav items ── */
+    .g-drawer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 10px 0;
+    }
+
+    .g-drawer-item {
+      transform: translateX(30px);
+      opacity: 0;
+      transition: transform var(--t-slow) var(--ease), opacity var(--t-slow) var(--ease);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+    }
+
+    .g-drawer-item:last-child {
+      border-bottom: none;
+    }
+
+    .g-drawer.is-open .g-drawer-item {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .g-drawer.is-open .g-drawer-item:nth-child(1) {
+      transition-delay: 0.08s;
+    }
+
+    .g-drawer.is-open .g-drawer-item:nth-child(2) {
+      transition-delay: 0.13s;
+    }
+
+    .g-drawer.is-open .g-drawer-item:nth-child(3) {
+      transition-delay: 0.18s;
+    }
+
+    .g-drawer.is-open .g-drawer-item:nth-child(4) {
+      transition-delay: 0.23s;
+    }
+
+    .g-drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: rgba(244, 244, 239, 0.30);
+      text-decoration: none;
+      position: relative;
+      transition: color var(--t-fast) var(--ease), padding-left var(--t-fast) var(--ease);
+      cursor: pointer;
+    }
+
+    /* Left gold bar on hover/active */
+    .g-drawer-link::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 50%;
+      transform: translateY(-50%) scaleY(0);
+      width: 3px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--gold-lt), var(--gold));
+      border-radius: 0 2px 2px 0;
+      box-shadow: 2px 0 14px rgba(212, 175, 55, 0.55);
+      transition: transform var(--t-fast) var(--ease);
+    }
+
+    .g-drawer-link:hover,
+    .g-drawer-link.active {
+      color: var(--white);
+    }
+
+    .g-drawer-link.active {
+      color: var(--gold-lt);
+    }
+
+    .g-drawer-link:hover::before,
+    .g-drawer-link.active::before {
+      transform: translateY(-50%) scaleY(1);
+    }
+
+    .g-drawer-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      opacity: 0.40;
+      padding-top: 5px;
+      flex-shrink: 0;
+      transition: opacity var(--t-fast) var(--ease);
+      min-width: 20px;
+    }
+
+    .g-drawer-link:hover .g-drawer-num,
+    .g-drawer-link.active .g-drawer-num {
+      opacity: 1;
+    }
+
+    .g-drawer-arrow {
+      margin-left: auto;
+      font-size: 13px;
+      color: rgba(212, 175, 55, 0.20);
+      transform: translateX(-8px);
+      opacity: 0;
+      transition: transform var(--t-fast) var(--ease), color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+      flex-shrink: 0;
+    }
+
+    .g-drawer-link:hover .g-drawer-arrow,
+    .g-drawer-link.active .g-drawer-arrow {
+      transform: translateX(0);
+      color: rgba(212, 175, 55, 0.60);
+      opacity: 1;
+    }
+
+    /* ── Drawer footer ── */
+    .g-drawer-foot {
+      margin-top: 24px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(212, 175, 55, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity var(--t-slow) var(--ease) 0.38s, transform var(--t-slow) var(--ease) 0.38s;
+      flex-shrink: 0;
+    }
+
+    .g-drawer.is-open .g-drawer-foot {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .g-drawer-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: #080808;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+      border-radius: 2px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: box-shadow var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+    }
+
+    .g-drawer-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.55s var(--ease);
+    }
+
+    .g-drawer-cta:hover::before {
+      left: 140%;
+    }
+
+    .g-drawer-cta:hover {
+      box-shadow: 0 12px 44px rgba(212, 175, 55, 0.46);
+      transform: translateY(-2px);
+    }
+
+    .g-drawer-cta span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .g-drawer-note {
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.07em;
+      color: rgba(212, 175, 55, 0.30);
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 1200px) {
+      #ganora-header {
+        padding: 0 40px;
+      }
+
+      .g-nav-link {
+        padding: 8px 13px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      #ganora-header {
+        padding: 0 32px;
+      }
+
+      .g-nav-link {
+        padding: 8px 11px;
+        font-size: 12px;
+      }
+
+      .g-cta {
+        padding: 9px 22px;
+      }
+    }
+
+    @media (max-width: 860px) {
+
+      .g-nav,
+      .g-right {
+        display: none;
+      }
+
+      .g-burger {
+        display: flex;
+      }
+
+      .g-drawer {
+        display: flex;
+      }
+
+      #ganora-header {
+        padding: 0 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #ganora-header {
+        padding: 0 20px;
+        height: 66px;
+      }
+
+      #ganora-header.scrolled {
+        height: 58px;
+      }
+
+      .g-logo-name {
+        font-size: 13.5px;
+        letter-spacing: 0.26em;
+      }
+
+      .g-logo-sub {
+        font-size: 6px;
+      }
+
+      .g-logo-mark {
+        width: 48px;
+        height: 48px;
+      }
+
+      .g-drawer-inner {
+        padding: 0 28px 40px;
+      }
+
+      .g-drawer-topbar {
+        height: 66px;
+      }
+
+      .g-drawer-link {
+        font-size: 25px;
+        padding: 17px 0;
+      }
+    }
+
+    @media (max-width: 380px) {
+      #ganora-header {
+        padding: 0 16px;
+      }
+
+      .g-logo-name {
+        font-size: 12px;
+        letter-spacing: 0.22em;
+      }
+
+      .g-logo-sub {
+        display: none;
+      }
+
+      .g-logo {
+        gap: 10px;
+      }
+
+      .g-logo-mark {
+        width: 42px;
+        height: 42px;
+      }
+
+      .g-drawer-inner {
+        padding: 0 22px 36px;
+      }
+
+      .g-drawer-link {
+        font-size: 22px;
+      }
+    }
+
+    /* Demo page filler */
+    .demo-content {
+      padding-top: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      opacity: 0.18;
+    }
+
+    .demo-content p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════
+       FOCUS-VISIBLE — Keyboard Navigation
+    ══════════════════════════════════ */
+    *:focus-visible {
+      outline: 2px solid rgba(212, 175, 55, 0.7);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    *:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    /* ══════════════════════════════════
+       SKIP TO CONTENT LINK
+    ══════════════════════════════════ */
+    .g-skip-link {
+      position: fixed;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10000;
+      background: var(--gold);
+      color: #070707;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 10px 24px;
+      border-radius: 0 0 6px 6px;
+      text-decoration: none;
+      transition: top 0.3s var(--ease);
+    }
+
+    .g-skip-link:focus {
+      top: 0;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- DIM OVERLAY --><!-- SKIP TO CONTENT (Accessibility) -->
+  <a class="g-skip-link" href="#main-content">Skip to content</a>
+
+  <!-- DIM OVERLAY -->
+  <div class="g-overlay" id="g-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header id="ganora-header" role="banner" aria-label="Site header">
+
+    <!-- LOGO -->
+    <a class="g-logo" href="index.html" aria-label="Ganora Technologies home">
+
+      <!-- Logo image mark — GT monogram only -->
+      <div class="g-logo-mark">
+        <img src="assets/ganora_logo.png" alt="Ganora Logo">
+      </div>
+
+      <!-- Brand text -->
+      <div class="g-logo-text">
+        <span class="g-logo-name">GANORA</span>
+        <span class="g-logo-sub">Technologies</span>
+      </div>
+
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav aria-label="Primary navigation">
+      <ul class="g-nav" role="list">
+        <li><a class="g-nav-link" href="index.html">Home</a></li>
+        <li><a class="g-nav-link" href="about.html">About</a></li>
+        <li><a class="g-nav-link" href="services.html">Services</a></li>
+        <li><a class="g-nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTA -->
+    <div class="g-right">
+      <a class="g-cta" href="contact.html" aria-label="Book a call with Ganora Technologies">
+        <span class="g-cta-label">Join Ganora</span>
+        <span class="g-cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <!-- HAMBURGER -->
+    <button class="g-burger" id="g-burger" aria-label="Open navigation menu" aria-expanded="false"
+      aria-controls="g-drawer" type="button">
+      <span class="g-burger-bar"></span>
+      <span class="g-burger-bar"></span>
+      <span class="g-burger-bar"></span>
+    </button>
+
+  </header>
+
+  <!-- ══════════ MOBILE DRAWER ══════════ -->
+  <nav class="g-drawer" id="g-drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true" aria-hidden="true">
+
+    <div class="g-drawer-inner">
+
+      <!-- Top: brand + close -->
+      <div class="g-drawer-topbar">
+        <a class="g-drawer-brand" href="index.html" tabindex="-1" aria-hidden="true">
+          <span class="g-drawer-brand-name">GANORA</span>
+          <span class="g-drawer-brand-sub">Technologies</span>
+        </a>
+
+        <button class="g-drawer-close" id="g-drawer-close" aria-label="Close navigation menu" type="button">
+          <span class="g-close-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="g-drawer-divider"></div>
+
+      <!-- Nav links — NO PORTFOLIO -->
+      <ul class="g-drawer-nav" role="list">
+        <li class="g-drawer-item">
+          <a class="g-drawer-link" href="index.html">
+            <span class="g-drawer-num">01</span>
+            Home
+            <span class="g-drawer-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li class="g-drawer-item">
+          <a class="g-drawer-link" href="about.html">
+            <span class="g-drawer-num">02</span>
+            About
+            <span class="g-drawer-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li class="g-drawer-item">
+          <a class="g-drawer-link" href="services.html">
+            <span class="g-drawer-num">03</span>
+            Services
+            <span class="g-drawer-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li class="g-drawer-item">
+          <a class="g-drawer-link" href="contact.html">
+            <span class="g-drawer-num">04</span>
+            Contact
+            <span class="g-drawer-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Footer CTA -->
+      <div class="g-drawer-foot">
+        <a class="g-drawer-cta" href="contact.html">
+          <span>Book a Call</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <p class="g-drawer-note">Let's talk about your project</p>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Demo body content so scroll effects work -->
+
+
+  <script>
+    (function () {
+      const header = document.getElementById('ganora-header');
+      const burger = document.getElementById('g-burger');
+      const drawer = document.getElementById('g-drawer');
+      const closeBtn = document.getElementById('g-drawer-close');
+      const overlay = document.getElementById('g-overlay');
+      if (!header || !burger || !drawer) return;
+
+      /* ── Scroll glassmorphism ── */
+      let ticking = false;
+      const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 24);
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+      }, { passive: true });
+      onScroll();
+
+      /* ── Menu state ── */
+      let menuOpen = false;
+      let lastFocus = null;
+
+      const openMenu = () => {
+        menuOpen = true;
+        lastFocus = document.activeElement;
+        burger.classList.add('is-open');
+        drawer.classList.add('is-open');
+        overlay.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+        drawer.setAttribute('aria-hidden', 'false');
+        burger.setAttribute('aria-label', 'Close navigation menu');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => closeBtn && closeBtn.focus(), 340);
+      };
+
+      const closeMenu = () => {
+        menuOpen = false;
+        burger.classList.remove('is-open');
+        drawer.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+        document.body.style.overflow = '';
+        lastFocus && lastFocus.focus();
+      };
+
+      burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+      closeBtn.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu);
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+
+      /* ── Active link detection ── */
+      const rawFile = window.location.pathname.split('/').pop();
+      const currentFile = rawFile || 'index.html';
+      document.querySelectorAll('.g-nav-link, .g-drawer-link').forEach(link => {
+        const linkFile = (link.getAttribute('href') || '').split('/').pop();
+        if (linkFile === currentFile) link.classList.add('active');
+      });
+
+    })();
+  </script>
+
+</body>
+
+</html>

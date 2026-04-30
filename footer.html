@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganora Technologies - Footer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #D4AF37;
+      --gold-lt: #F0D060;
+      --gold-dim: rgba(212, 175, 55, 0.14);
+      --gold-glow: rgba(212, 175, 55, 0.35);
+      --white: #F4F4EF;
+      --grey-hi: #C8C8C0;
+      --grey-md: #7A7A72;
+      --grey-lo: #3A3A34;
+      --dark: #0a0a0a;
+      --dark-2: #0f0f0d;
+      --border: rgba(212, 175, 55, 0.11);
+      --ease: cubic-bezier(0.23, 1, 0.32, 1);
+      --t-fast: 0.28s;
+      --t-mid: 0.42s;
+      --t-slow: 0.6s;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER SHELL
+    ══════════════════════════════════════════ */
+    #ganora-footer {
+      position: relative;
+      width: 100%;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 110%, rgba(212, 175, 55, 0.055) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 120%, rgba(212, 175, 55, 0.03) 0%, transparent 55%),
+        linear-gradient(180deg, #0a0a0a 0%, #080807 60%, #060605 100%);
+      border-top: 1px solid var(--border);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.9s var(--ease),
+        transform 0.9s var(--ease);
+    }
+
+    #ganora-footer.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #ganora-footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at var(--bx, 20%) var(--by, 110%),
+          rgba(212, 175, 55, 0.04) 0%, transparent 65%);
+      animation: ambientDrift 18s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes ambientDrift {
+      0% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.7;
+      }
+    }
+
+    #ganora-footer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55%;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(212, 175, 55, 0.5) 30%,
+          rgba(240, 208, 96, 0.75) 50%,
+          rgba(212, 175, 55, 0.5) 70%,
+          transparent);
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════════════════
+       MAIN GRID
+    ══════════════════════════════════════════ */
+    .gf-main {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
+      gap: 0;
+      padding: 72px 64px 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gf-col {
+      padding-right: 48px;
+    }
+
+    .gf-col:last-child {
+      padding-right: 0;
+    }
+
+    /* ── BRAND COL ── */
+    .gf-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    @keyframes gf-logo-breathe {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.12));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 11px rgba(212, 175, 55, 0.42));
+      }
+    }
+
+    .gf-logo-mark {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: none;
+      animation: gf-logo-breathe 3.6s ease-in-out infinite;
+      transition: transform .4s var(--ease);
+    }
+
+    /* Subtle gold halo ring around logo mark */
+    .gf-logo-mark::after {
+      display: none;
+    }
+
+    .gf-logo:hover .gf-logo-mark {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 18px rgba(212, 175, 55, .62));
+      animation-play-state: paused;
+    }
+
+    /* Exact same crop strategy as header:
+       scale to 175% width, offset left −36% and top −2%
+       so only the GT monogram region is visible */
+    .gf-logo-mark img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 175%;
+      height: auto;
+      margin-left: -36%;
+      margin-top: -2%;
+      mix-blend-mode: lighten;
+      filter: brightness(1.15) contrast(1.06);
+      display: block;
+      transition: filter .4s var(--ease);
+    }
+
+    .gf-logo:hover .gf-logo-mark img {
+      filter: brightness(1.30) contrast(1.10);
+    }
+
+    .gf-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      line-height: 1;
+    }
+
+    .gf-logo-name {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.32em;
+      color: var(--white);
+      background: linear-gradient(115deg, #FFFFFF 20%, var(--gold-lt) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      transition: letter-spacing var(--t-slow) var(--ease);
+    }
+
+    .gf-logo:hover .gf-logo-name {
+      letter-spacing: 0.38em;
+    }
+
+    .gf-logo-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 8px;
+      letter-spacing: 0.48em;
+      color: var(--gold);
+      opacity: 0.65;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .gf-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      line-height: 1.3;
+      margin-bottom: 14px;
+      opacity: 0.9;
+    }
+
+    .gf-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--grey-md);
+      max-width: 260px;
+      margin-bottom: 32px;
+    }
+
+    /* Social icons */
+    .gf-socials {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .gf-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      background: rgba(212, 175, 55, 0.04);
+      color: var(--grey-md);
+      text-decoration: none;
+      font-size: 15px;
+      transition:
+        color var(--t-fast) var(--ease),
+        border-color var(--t-fast) var(--ease),
+        background var(--t-fast) var(--ease),
+        transform var(--t-fast) var(--ease),
+        box-shadow var(--t-fast) var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gf-social::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity var(--t-fast) var(--ease);
+    }
+
+    .gf-social:hover {
+      color: var(--gold);
+      border-color: rgba(212, 175, 55, 0.45);
+      background: rgba(212, 175, 55, 0.07);
+      transform: translateY(-3px) scale(1.06);
+      box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.2),
+        0 8px 24px rgba(212, 175, 55, 0.25),
+        0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .gf-social:hover::before {
+      opacity: 1;
+    }
+
+    .gf-social i {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── COL HEADINGS ── */
+    .gf-col-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .gf-col-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    /* ── NAV LINKS ── */
+    .gf-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .gf-links li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      padding: 6px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 13.5px;
+      letter-spacing: 0.03em;
+      color: var(--grey-md);
+      text-decoration: none;
+      position: relative;
+      transition:
+        color var(--t-fast) var(--ease),
+        gap var(--t-fast) var(--ease);
+    }
+
+    .gf-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+      transition: width var(--t-mid) var(--ease);
+      box-shadow: 0 0 6px var(--gold-glow);
+    }
+
+    .gf-links li a:hover {
+      color: var(--white);
+      gap: 8px;
+    }
+
+    .gf-links li a:hover::after {
+      width: 100%;
+    }
+
+    .gf-links li a .gf-arrow {
+      font-size: 12px;
+      line-height: 1;
+      opacity: 0;
+      transform: translateX(-6px);
+      color: var(--gold);
+      transition:
+        opacity var(--t-fast) var(--ease),
+        transform var(--t-fast) var(--ease);
+      display: inline-block;
+      width: 0;
+      overflow: visible;
+    }
+
+    .gf-links li a:hover .gf-arrow {
+      opacity: 1;
+      transform: translateX(0);
+      width: auto;
+    }
+
+    /* ── CONTACT INFO ── */
+    .gf-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .gf-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+    }
+
+    .gf-contact-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      color: var(--gold);
+      font-size: 11px;
+      opacity: 0.75;
+    }
+
+    .gf-contact-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .gf-contact-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #555550;
+    }
+
+    .gf-contact-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--grey-md);
+      text-decoration: none;
+      transition: color var(--t-fast) var(--ease);
+      line-height: 1.45;
+    }
+
+    a.gf-contact-val:hover {
+      color: var(--white);
+    }
+
+    /* ══════════════════════════════════════════
+       BOTTOM BAR
+    ══════════════════════════════════════════ */
+    .gf-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 64px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .gf-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #4a4a44;
+      white-space: nowrap;
+    }
+
+    .gf-copy span {
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    .gf-bottom-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .gf-bottom-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+      color: #4a4a44;
+      text-decoration: none;
+      transition: color var(--t-fast) var(--ease);
+      position: relative;
+    }
+
+    .gf-bottom-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width var(--t-mid) var(--ease);
+    }
+
+    .gf-bottom-links a:hover {
+      color: var(--grey-md);
+    }
+
+    .gf-bottom-links a:hover::after {
+      width: 100%;
+    }
+
+    .gf-craft {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 11.5px;
+      color: #3a3a34;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .gf-craft span {
+      color: var(--gold);
+      opacity: 0.6;
+      font-size: 13px;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .gf-main {
+        grid-template-columns: 1.6fr 1fr 1fr;
+        padding: 60px 44px 48px;
+        gap: 0;
+      }
+
+      .gf-col:last-child {
+        grid-column: 1 / -1;
+        padding-right: 0;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        margin-top: 40px;
+      }
+
+      .gf-contact-list {
+        flex-direction: row;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+
+      .gf-bottom {
+        padding: 20px 44px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gf-main {
+        grid-template-columns: 1fr 1fr;
+        padding: 52px 32px 44px;
+        row-gap: 44px;
+      }
+
+      .gf-col {
+        padding-right: 24px;
+      }
+
+      .gf-col:last-child {
+        grid-column: 1 / -1;
+        padding-top: 36px;
+        margin-top: 0;
+      }
+
+      .gf-contact-list {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .gf-bottom {
+        padding: 18px 32px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .gf-craft {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gf-main {
+        grid-template-columns: 1fr;
+        padding: 44px 24px 36px;
+        row-gap: 40px;
+      }
+
+      .gf-col {
+        padding-right: 0;
+      }
+
+      .gf-col:last-child {
+        padding-top: 36px;
+        border-top: 1px solid var(--border);
+      }
+
+      .gf-desc {
+        max-width: 100%;
+      }
+
+      .gf-bottom {
+        padding: 18px 24px;
+        gap: 10px;
+      }
+
+      .gf-bottom-links {
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .gf-copy {
+        text-align: center;
+      }
+
+      .gf-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ══════════════════════════════════════════
+       BACK-TO-TOP BUTTON
+    ══════════════════════════════════════════ */
+    #g-back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 800;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 50%;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px) scale(0.9);
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), border-color 0.25s, background 0.25s;
+    }
+
+    #g-back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    #g-back-to-top:hover {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.12);
+      transform: translateY(-3px) scale(1);
+    }
+
+    #g-back-to-top svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.25s var(--ease);
+    }
+
+    #g-back-to-top:hover svg {
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+    ══════════════════════════════════════════ */
+    #g-whatsapp-btn {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      z-index: 800;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      opacity: 0;
+      transform: translateY(16px) scale(0.9);
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), box-shadow 0.3s;
+    }
+
+    #g-whatsapp-btn.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    #g-whatsapp-btn:hover {
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+      transform: translateY(-3px) scale(1.06);
+    }
+
+    #g-whatsapp-btn svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    /* Pulse ring animation */
+    #g-whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.3);
+      animation: g-wa-pulse 2.5s ease-out infinite;
+    }
+
+    @keyframes g-wa-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Tooltip */
+    #g-whatsapp-btn .g-wa-tooltip {
+      position: absolute;
+      left: 64px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 10, 10, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      color: #e8e2d4;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 8px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    #g-whatsapp-btn:hover .g-wa-tooltip {
+      opacity: 1;
+    }
+
+    /* ══════════════════════════════════════════
+       SCROLL PROGRESS BAR
+    ══════════════════════════════════════════ */
+    #g-scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), #D4AF37, #F0D060);
+      z-index: 9999;
+      transition: width 0.08s linear;
+      pointer-events: none;
+    }
+
+    @media (max-width: 520px) {
+      #g-back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+      }
+
+      #g-whatsapp-btn {
+        bottom: 20px;
+        left: 20px;
+        width: 48px;
+        height: 48px;
+      }
+
+      #g-whatsapp-btn .g-wa-tooltip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <footer id="ganora-footer" role="contentinfo" aria-label="Site footer">
+
+    <!-- ══ MAIN GRID ══ -->
+    <div class="gf-main">
+
+      <!-- COL 1 - BRAND -->
+      <div class="gf-col gf-brand">
+
+        <a class="gf-logo" href="index.html" aria-label="Ganora Technologies home">
+          <div class="gf-logo-mark">
+            <img src="assets/ganora_logo.png" alt="Ganora Logo" loading="lazy" decoding="async">
+          </div>
+          <div class="gf-logo-text">
+            <span class="gf-logo-name">GANORA</span>
+            <span class="gf-logo-sub">Technologies</span>
+          </div>
+        </a>
+
+        <p class="gf-tagline">Engineering the Impossible.</p>
+        <p class="gf-desc">
+          We build next-generation digital infrastructure for visionary enterprises - where precision meets elegance,
+          and technology becomes art.
+        </p>
+
+        <div class="gf-socials" role="list" aria-label="Social media links">
+
+          <!-- LinkedIn -->
+          <a class="gf-social" href="https://www.linkedin.com/in/ganoratechpriyanka" target="_blank"
+            rel="noopener noreferrer" aria-label="LinkedIn" role="listitem">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+
+          <!-- X / Twitter -->
+          <a class="gf-social" href="https://x.com/ganoratechv2" target="_blank" rel="noopener noreferrer"
+            aria-label="X (Twitter)" role="listitem">
+            <i class="fab fa-x-twitter" aria-hidden="true"></i>
+          </a>
+
+          <!-- Instagram -->
+          <a class="gf-social" href="https://www.instagram.com/ganoratech2.0" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram" role="listitem">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+
+          <!-- WhatsApp -->
+          <a class="gf-social" href="https://wa.me/918431221552" target="_blank" rel="noopener noreferrer"
+            aria-label="WhatsApp" role="listitem">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- COL 2 - NAVIGATION -->
+      <div class="gf-col">
+        <h3 class="gf-col-title">Navigation</h3>
+        <ul class="gf-links" role="list">
+          <li><a href="index.html">Home<span class="gf-arrow">›</span></a></li>
+          <li><a href="about.html">About<span class="gf-arrow">›</span></a></li>
+          <li><a href="services.html">Services<span class="gf-arrow">›</span></a></li>
+          <li><a href="contact.html">Contact<span class="gf-arrow">›</span></a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3 - SERVICES -->
+
+      <div class="gf-col">
+        <h3 class="gf-col-title">Services</h3>
+        <ul class="gf-links" role="list">
+          <li><a href="services.html#service-wp">WordPress Development<span class="gf-arrow">›</span></a></li>
+          <li><a href="services.html#service-web">Web Development<span class="gf-arrow">›</span></a></li>
+          <li><a href="services.html#service-design">UI / UX Design<span class="gf-arrow">›</span></a></li>
+          <li><a href="services.html#service-auto">Automation<span class="gf-arrow">›</span></a></li>
+        </ul>
+      </div>
+
+      <!-- COL 4 - CONTACT -->
+      <div class="gf-col">
+        <h3 class="gf-col-title">Contact</h3>
+        <ul class="gf-contact-list" role="list">
+
+          <li class="gf-contact-item">
+            <div class="gf-contact-icon" aria-hidden="true">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="gf-contact-text">
+              <span class="gf-contact-label">Email</span>
+              <a class="gf-contact-val" href="mailto:hello.ganora@gmail.com">hello.ganora@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="gf-contact-item">
+            <div class="gf-contact-icon" aria-hidden="true">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="gf-contact-text">
+              <span class="gf-contact-label">Phone</span>
+              <a class="gf-contact-val" href="tel:+918431221552">+91 8431221552</a>
+            </div>
+          </li>
+
+          <li class="gf-contact-item">
+            <div class="gf-contact-icon" aria-hidden="true">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="gf-contact-text">
+              <span class="gf-contact-label">Work</span>
+              <span class="gf-contact-val">Remote &bull; Worldwide</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div><!-- /gf-main -->
+
+    <!-- ══ BOTTOM BAR ══ -->
+    <div class="gf-bottom">
+      <p class="gf-copy">
+        <span>Ganora Technologies</span> &nbsp;&copy;&nbsp; <span id="gf-year">2026</span>. All rights reserved.
+      </p>
+
+      <nav class="gf-bottom-links" aria-label="Legal navigation">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+
+      <p class="gf-craft">Crafted with <span>◆</span> precision</p>
+    </div>
+
+  </footer>
+
+  <!-- ══ SCROLL PROGRESS BAR ══ -->
+  <div id="g-scroll-progress" aria-hidden="true"></div>
+
+  <!-- ══ BACK-TO-TOP BUTTON ══ -->
+  <button id="g-back-to-top" aria-label="Scroll to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M12 19V5" />
+      <path d="m5 12 7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- ══ WHATSAPP FLOATING BUTTON ══ -->
+  <a id="g-whatsapp-btn" href="https://wa.me/918431221552" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span class="g-wa-tooltip">Chat with us</span>
+  </a>
+
+  <script>
+    (function () {
+      /* ── Auto year ── */
+      var yr = document.getElementById('gf-year');
+      if (yr) yr.textContent = new Date().getFullYear();
+
+      var footer = document.getElementById('ganora-footer');
+      if (!footer) return;
+
+      /* ── Reveal on scroll ── */
+      function reveal() {
+        footer.classList.add('is-visible');
+      }
+
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            reveal();
+            revealObserver.unobserve(footer);
+          }
+        });
+      }, { threshold: 0.06 });
+
+      revealObserver.observe(footer);
+
+      /* Fallback: already in viewport */
+      if (footer.getBoundingClientRect().top < window.innerHeight) {
+        reveal();
+        revealObserver.unobserve(footer);
+      }
+
+      /* ── Stagger child items on reveal ── */
+      var staggerTargets = footer.querySelectorAll('.gf-links li, .gf-contact-item, .gf-social');
+
+      staggerTargets.forEach(function (el, i) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(14px)';
+        el.style.transition =
+          'opacity 0.55s cubic-bezier(0.23,1,0.32,1) ' + (0.1 + i * 0.055) + 's, ' +
+          'transform 0.55s cubic-bezier(0.23,1,0.32,1) ' + (0.1 + i * 0.055) + 's';
+      });
+
+      var staggerObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            staggerTargets.forEach(function (el) {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            });
+            staggerObserver.unobserve(footer);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      staggerObserver.observe(footer);
+
+      /* ── Back-to-top button ── */
+      var btt = document.getElementById('g-back-to-top');
+      if (btt) {
+        var bttShown = false;
+        function checkBtt() {
+          if (window.scrollY > 600) {
+            if (!bttShown) { btt.classList.add('visible'); bttShown = true; }
+          } else {
+            if (bttShown) { btt.classList.remove('visible'); bttShown = false; }
+          }
+        }
+        window.addEventListener('scroll', checkBtt, { passive: true });
+        checkBtt();
+        btt.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* ── WhatsApp button ── */
+      var wab = document.getElementById('g-whatsapp-btn');
+      if (wab) {
+        setTimeout(function () { wab.classList.add('visible'); }, 2500);
+      }
+
+      /* ── Scroll Progress Bar ── */
+      var spb = document.getElementById('g-scroll-progress');
+      if (spb) {
+        var spbTicking = false;
+        window.addEventListener('scroll', function () {
+          if (!spbTicking) {
+            requestAnimationFrame(function () {
+              var h = document.documentElement.scrollHeight - window.innerHeight;
+              spb.style.width = h > 0 ? ((window.scrollY / h) * 100).toFixed(1) + '%' : '0%';
+              spbTicking = false;
+            });
+            spbTicking = true;
+          }
+        }, { passive: true });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

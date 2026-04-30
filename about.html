@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Ganora Technologies</title>
+  <meta name="description"
+    content="Learn about Ganora Technologies - our story, principles, process, and the values that drive how we build intelligent systems." />
+  <meta property="og:title" content="About - Ganora Technologies" />
+  <meta property="og:description" content="Our story, principles, and the values that drive everything we build." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ganoratech.com/about.html" />
+  <meta property="og:image" content="https://ganoratech.com/assets/ganora_logo.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://ganoratech.com/about.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-deep: #060607;
+      --bg-mid: #0D0D0F;
+      --bg-card: #111114;
+      --bg-card2: #15151A;
+      --gold: #D4AF37;
+      --gold-light: #E8C94A;
+      --gold-dim: rgba(212, 175, 55, 0.12);
+      --gold-border: rgba(212, 175, 55, 0.22);
+      --white: #F5F4F0;
+      --muted: #8A8A96;
+      --line: rgba(255, 255, 255, 0.06);
+      --ff-serif: 'Playfair Display', Georgia, serif;
+      --ff-sans: 'Outfit', sans-serif;
+      --ff-mono: 'Space Mono', monospace;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      font-family: var(--ff-sans);
+      background: var(--bg-deep);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── TYPOGRAPHY ───────────────────────────────────────── */
+    .label {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--white);
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 52ch;
+    }
+
+    /* ─── UTILITIES ────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .gold-line {
+      display: inline-block;
+      width: 2.5rem;
+      height: 2px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .flex-label {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── SCROLL REVEAL ────────────────────────────────────── */
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.72s var(--ease-out), transform 0.72s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    /* ─── HEADER SLOT ──────────────────────────────────────── */
+    #header-slot {
+      position: relative;
+      z-index: 100;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-glow::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -52%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.07) 0%, transparent 70%);
+      filter: blur(40px);
+    }
+
+    .hero-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, transparent 60%, var(--bg-deep) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255, 255, 255, 0.013) 60px, rgba(255, 255, 255, 0.013) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255, 255, 255, 0.013) 60px, rgba(255, 255, 255, 0.013) 61px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 100px;
+      padding: 0.4rem 1.1rem;
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.2rem;
+      animation: fadeSlideDown 0.9s var(--ease-out) forwards;
+      opacity: 0;
+    }
+
+    .hero-label-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.7)
+      }
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .hero-headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
+      animation: fadeSlideUp 0.9s 0.15s var(--ease-out) forwards;
+      opacity: 0;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 50ch;
+      line-height: 1.8;
+      margin: 0 auto 3.5rem;
+      animation: fadeSlideUp 0.9s 0.28s var(--ease-out) forwards;
+      opacity: 0;
+    }
+
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      animation: fadeSlideUp 0.9s 0.5s var(--ease-out) forwards;
+      opacity: 0;
+    }
+
+    .hero-scroll span {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-track {
+      width: 1px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      border-radius: 1px;
+    }
+
+    .scroll-thumb {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      border-radius: 1px;
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollDown {
+      0% {
+        top: -50%;
+      }
+
+      100% {
+        top: 100%;
+      }
+    }
+
+    /* ─── SECTION WRAPPER ──────────────────────────────────── */
+    section {
+      padding: 7rem 0;
+    }
+
+    section+section {
+      border-top: 1px solid var(--line);
+    }
+
+    /* ─── OUR STORY ────────────────────────────────────────── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .story-text p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .story-text p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* Animated rings visual */
+    .story-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rings-wrap {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      animation: spin 8s linear infinite;
+    }
+
+    .ring:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      animation: spin 14s linear infinite reverse;
+      border-color: rgba(212, 175, 55, 0.14);
+    }
+
+    .ring:nth-child(3) {
+      width: 220px;
+      height: 220px;
+      animation: spin 20s linear infinite;
+      border-color: rgba(212, 175, 55, 0.09);
+    }
+
+    .ring:nth-child(4) {
+      width: 300px;
+      height: 300px;
+      animation: spin 28s linear infinite reverse;
+      border-color: rgba(212, 175, 55, 0.06);
+    }
+
+    .ring::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      opacity: 0.7;
+    }
+
+    @keyframes spin {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg)
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg)
+      }
+    }
+
+    .rings-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0.06) 60%, transparent 100%);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.25), 0 0 60px rgba(212, 175, 55, 0.1);
+    }
+
+    /* ─── WHAT WE BELIEVE ──────────────────────────────────── */
+    .beliefs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .belief-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s var(--ease-out);
+      cursor: default;
+    }
+
+    .belief-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 0%, var(--gold-dim) 0%, transparent 65%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .belief-card:hover {
+      border-color: var(--gold-border);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.08), inset 0 1px 0 var(--gold-border);
+      transform: translateY(-3px);
+    }
+
+    .belief-card:hover::before {
+      opacity: 1;
+    }
+
+    .belief-num {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      opacity: 0.7;
+    }
+
+    .belief-card h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .belief-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .belief-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ─── PROCESS ──────────────────────────────────────────── */
+    .process-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .process-header .section-sub {
+      margin: 1rem auto 0;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 2.4rem;
+      left: calc(12.5% + 1rem);
+      right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-border) 15%, var(--gold-border) 85%, transparent);
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+      cursor: default;
+    }
+
+    .step-num-wrap {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      background: var(--bg-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .process-step:hover .step-num-wrap {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+    }
+
+    .step-num {
+      font-family: var(--ff-mono);
+      font-size: 0.85rem;
+      color: var(--gold);
+    }
+
+    .process-step h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+    }
+
+    .process-step p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── WHY CHOOSE ───────────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .why-list {
+      list-style: none;
+      margin-top: 2.5rem;
+    }
+
+    .why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding-left 0.3s ease;
+      cursor: default;
+    }
+
+    .why-list li:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .why-list li:hover {
+      padding-left: 0.5rem;
+    }
+
+    .why-icon {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 8px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+    }
+
+    .why-list h4 {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .why-list p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .why-right {
+      position: relative;
+      padding-top: 1rem;
+    }
+
+    .why-stat-block {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .why-stat-block:hover {
+      border-color: var(--gold-border);
+    }
+
+    .stat-num {
+      font-family: var(--ff-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* ─── CAPABILITIES ─────────────────────────────────────── */
+    .cap-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .cap-header .section-sub {
+      margin: 0.75rem auto 0;
+    }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .cap-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .cap-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.06);
+    }
+
+    .cap-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .cap-card h3 {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cap-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── FUTURE VISION ────────────────────────────────────── */
+    .vision {
+      text-align: center;
+      background: var(--bg-mid);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 250px;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .vision .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .vision-quote {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--white);
+      max-width: 640px;
+      margin: 1.75rem auto 0;
+    }
+
+    .vision-quote strong {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    /* ─── CTA ──────────────────────────────────────────────── */
+    .cta {
+      text-align: center;
+    }
+
+    .cta-card {
+      background: rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 20px;
+      padding: 4rem 3rem;
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 46ch;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--bg-deep);
+      font-family: var(--ff-sans);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-gold svg {
+      transition: transform 0.25s ease;
+    }
+
+    .btn-gold:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ─── FOOTER SLOT ──────────────────────────────────────── */
+    #footer-slot {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ─── INLINE HEADER FALLBACK ────────────────────────────── */
+    .inline-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(6, 6, 7, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--gold) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.82rem !important;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-dim) !important;
+      color: var(--gold) !important;
+    }
+
+    /* ─── INLINE FOOTER FALLBACK ────────────────────────────── */
+    .inline-footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .inline-footer-logo {
+      font-family: var(--ff-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .inline-footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-gold {
+      color: var(--gold);
+    }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+
+      .beliefs-grid,
+      .cap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 5rem 0;
+      }
+
+      .story-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .story-visual {
+        order: -1;
+      }
+
+      .rings-wrap {
+        width: 220px;
+        height: 220px;
+      }
+
+      .ring:nth-child(4) {
+        width: 200px;
+        height: 200px;
+      }
+
+      .ring:nth-child(3) {
+        width: 150px;
+        height: 150px;
+      }
+
+      .ring:nth-child(2) {
+        width: 100px;
+        height: 100px;
+      }
+
+      .ring:nth-child(1) {
+        width: 55px;
+        height: 55px;
+      }
+
+      .beliefs-grid,
+      .cap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .cta-card {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header-slot">
+    <!-- Fallback inline nav (replaced if header.html loads) -->
+    <nav class="inline-nav" id="fallback-nav">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>
+        Ganora Technologies
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html" style="color:var(--gold)">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-label">
+        <span class="hero-label-dot"></span>
+        About Ganora Technologies
+      </div>
+      <h1 class="hero-headline">
+        Building Digital Systems<br />
+        That <em>Actually Work</em>
+      </h1>
+      <p class="hero-sub">
+        We're a focused technology studio. We design interfaces, build web systems, and create digital tools that are
+        clean, reliable, and built to last.
+      </p>
+      <div class="hero-scroll" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">
+        <div class="scroll-track">
+          <div class="scroll-thumb"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ OUR STORY ═══════════ -->
+  <section id="story">
+    <div class="container">
+      <div class="story-grid">
+
+        <div class="story-text reveal">
+          <div class="flex-label">
+            <span class="gold-line"></span>
+            <span class="label">Our Story</span>
+          </div>
+          <h2 class="section-title" style="margin-bottom:1.75rem">We started from a<br />simple frustration</h2>
+          <p>Too many digital projects were slow, bloated, and hard to maintain. Clients were paying for things that
+            didn't hold up-visual noise with no real structure beneath.</p>
+          <p>Ganora was built to change that. We started as a small group of designers and developers who wanted to do
+            one thing well: <strong>build systems that are clean, logical, and genuinely useful.</strong></p>
+          <p>We're still that team. We haven't scaled up to dilute quality. We take projects we believe in and give them
+            the full attention they deserve. Every build is purposeful. Nothing is done for show.</p>
+        </div>
+
+        <div class="story-visual reveal reveal-delay-2">
+          <div class="rings-wrap" aria-hidden="true">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="rings-core"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHAT WE BELIEVE ═══════════ -->
+  <section>
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:0.5rem">
+        <div class="flex-label" style="justify-content:center">
+          <span class="gold-line"></span>
+          <span class="label">What We Believe</span>
+        </div>
+        <h2 class="section-title">Principles that guide<br />every project</h2>
+      </div>
+
+      <div class="beliefs-grid">
+        <div class="belief-card reveal reveal-delay-1">
+          <span class="belief-num">01</span>
+          <span class="belief-icon">◈</span>
+          <h3>Clarity Over Complexity</h3>
+          <p>If it's hard to explain, it'll be hard to maintain. We design systems that make sense - to you, to your
+            users, and to anyone who works with them later.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-2">
+          <span class="belief-num">02</span>
+          <span class="belief-icon">⚡</span>
+          <h3>Performance Matters</h3>
+          <p>Slow is a feature no one asked for. Every build is optimised from the ground up so it loads fast, runs
+            smoothly, and stays that way.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-3">
+          <span class="belief-num">03</span>
+          <span class="belief-icon">◎</span>
+          <h3>Design with Purpose</h3>
+          <p>Good design isn't decoration. It's structure. Everything we create has a reason to exist and a job to do -
+            aesthetics that serve function, not the other way around.</p>
+        </div>
+        <div class="belief-card reveal reveal-delay-4">
+          <span class="belief-num">04</span>
+          <span class="belief-icon">∞</span>
+          <h3>Build for Scale</h3>
+          <p>We think past the launch date. The systems we build are structured so you can grow without having to
+            rebuild from scratch every 18 months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HOW WE WORK ═══════════ -->
+  <section>
+    <div class="container">
+      <div class="process-header reveal">
+        <div class="flex-label" style="justify-content:center">
+          <span class="gold-line"></span>
+          <span class="label">How We Work</span>
+        </div>
+        <h2 class="section-title">A clear process,<br />every time</h2>
+        <p class="section-sub">No surprises, no mystery. Here's exactly how we take a project from brief to launch.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num-wrap"><span class="step-num">01</span></div>
+          <h3>Understand</h3>
+          <p>We spend time understanding your goals, your users, and the actual problem you're solving - before any
+            design or code begins.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num-wrap"><span class="step-num">02</span></div>
+          <h3>Design</h3>
+          <p>We map out structure and flow, then build interfaces that feel natural. You'll see exactly what we're
+            building before a line of code is written.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num-wrap"><span class="step-num">03</span></div>
+          <h3>Build</h3>
+          <p>Clean, well-organised code. We keep you in the loop throughout so there are no surprises at handover.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="step-num-wrap"><span class="step-num">04</span></div>
+          <h3>Improve</h3>
+          <p>After launch we review what's working, what can be better, and how to grow the system without breaking
+            what's already good.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHY CHOOSE GANORA ═══════════ -->
+  <section>
+    <div class="container">
+      <div class="why-grid">
+
+        <div>
+          <div class="reveal">
+            <div class="flex-label">
+              <span class="gold-line"></span>
+              <span class="label">Why Ganora</span>
+            </div>
+            <h2 class="section-title">What makes working<br />with us different</h2>
+          </div>
+          <ul class="why-list">
+            <li class="reveal reveal-delay-1">
+              <div class="why-icon">🏗</div>
+              <div>
+                <h4>Clean Architecture</h4>
+                <p>Every system we build is structured so it's easy to update, hand over, and grow. No spaghetti code,
+                  no dead weight.</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-2">
+              <div class="why-icon">💬</div>
+              <div>
+                <h4>Honest Communication</h4>
+                <p>If something isn't feasible, we say so early. If there's a better way, we'll tell you. You'll always
+                  know where the project stands.</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <div class="why-icon">⚙️</div>
+              <div>
+                <h4>Performance-First Mindset</h4>
+                <p>We optimise by default - not as an afterthought. Speed and reliability are baked in from the start.
+                </p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-4">
+              <div class="why-icon">🔭</div>
+              <div>
+                <h4>Long-Term Thinking</h4>
+                <p>We build for where you're going, not just where you are. Every decision is made with the next phase
+                  in mind.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="why-right">
+          <div class="why-stat-block reveal reveal-delay-1">
+            <div class="stat-num" data-count="100" data-suffix="%">0%</div>
+            <div class="stat-label">Projects delivered with full documentation and clean handover</div>
+          </div>
+          <div class="why-stat-block reveal reveal-delay-2">
+            <div class="stat-num" data-count="3" data-suffix=" Days">0</div>
+            <div class="stat-label">Average response time from brief to initial proposal</div>
+          </div>
+          <div class="why-stat-block reveal reveal-delay-3">
+            <div class="stat-num" data-count="0" data-suffix="">0</div>
+            <div class="stat-label">Surprise costs - everything is scoped and agreed before we start</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CAPABILITIES ═══════════ -->
+  <section style="background:var(--bg-mid)">
+    <div class="container">
+      <div class="cap-header reveal">
+        <div class="flex-label" style="justify-content:center">
+          <span class="gold-line"></span>
+          <span class="label">Capabilities</span>
+        </div>
+        <h2 class="section-title">What we build</h2>
+        <p class="section-sub">Core areas where we focus our craft - and where we consistently deliver strong results.
+        </p>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-card reveal reveal-delay-1">
+          <span class="cap-icon">🚀</span>
+          <h3>Fast Performance</h3>
+          <p>Optimised loading, clean rendering, and minimal overhead so your users never wait.</p>
+        </div>
+        <div class="cap-card reveal reveal-delay-2">
+          <span class="cap-icon">⚖️</span>
+          <h3>Scalable Systems</h3>
+          <p>Built to grow. Architecture that expands with your business without requiring a full rebuild.</p>
+        </div>
+        <div class="cap-card reveal reveal-delay-3">
+          <span class="cap-icon">🔒</span>
+          <h3>Secure Builds</h3>
+          <p>Security is considered at every layer - from authentication to data handling to deployment.</p>
+        </div>
+        <div class="cap-card reveal reveal-delay-4">
+          <span class="cap-icon">🧱</span>
+          <h3>Modern Stack</h3>
+          <p>We use current, stable technologies. Nothing experimental that'll be unsupported in two years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FUTURE VISION ═══════════ -->
+  <section class="vision">
+    <div class="container">
+      <div class="reveal" style="text-align:center">
+        <div class="flex-label" style="justify-content:center">
+          <span class="gold-line"></span>
+          <span class="label">Looking Ahead</span>
+        </div>
+        <h2 class="section-title">Where we're headed</h2>
+      </div>
+      <p class="vision-quote reveal reveal-delay-1">
+        "We're not chasing scale for its own sake. We're focused on <strong>building better systems</strong>, one
+        project at a time - and getting genuinely good at what we do."
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card reveal">
+        <h2>Have a project in mind?</h2>
+        <p>Tell us what you're building. We'll take a look and give you a straight answer on how we can help.</p>
+        <a href="/contact.html" class="btn-gold">
+          Start a Conversation
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-slot"></div>
+
+  <script>
+    function loadComponent(id, file) {
+      fetch(file)
+        .then(r => {
+          if (!r.ok) throw new Error(r.status);
+          return r.text();
+        })
+        .then(html => {
+          const el = document.getElementById(id);
+          el.innerHTML = html;
+
+          // IMPORTANT: scripts run karne ke liye
+          el.querySelectorAll('script').forEach(old => {
+            const s = document.createElement('script');
+            s.textContent = old.textContent;
+            document.body.appendChild(s);
+          });
+        })
+        .catch(e => console.warn('Component not loaded:', file, e));
+    }
+
+    loadComponent('header-slot', 'header.html');
+    loadComponent('footer-slot', 'footer.html');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    /* ── Animated Stat Counters ── */
+    const statNums = document.querySelectorAll('.stat-num[data-count]');
+    if (statNums.length) {
+      const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-count'), 10);
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function tick(now) {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const current = Math.round(easeOut(progress) * target);
+              el.textContent = current + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      statNums.forEach(el => counterObserver.observe(el));
+    }
+  </script>
+</body>
+
+</html>
