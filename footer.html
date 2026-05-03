@@ -817,7 +817,32 @@
         display: none;
       }
     }
+
+    /* SERVICES LIST (NO LINKS) */
+.gf-service-item {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 13.5px;
+  letter-spacing: 0.03em;
+  color: var(--grey-md);
+  padding: 6px 0;
+  cursor: default;
+  transition: color 0.3s ease;
+}
+
+/* Optional subtle hover (premium feel) */
+.gf-service-item:hover {
+  color: var(--white);
+}
+
+.gf-craft span {
+  color: var(--gold);
+  opacity: 0.85;
+  letter-spacing: 0.08em;
+}
   </style>
+
+  
 </head>
 
 <body>
@@ -891,10 +916,12 @@
       <div class="gf-col">
         <h3 class="gf-col-title">Services</h3>
         <ul class="gf-links" role="list">
-          <li><a href="services.html#service-wp">WordPress Development<span class="gf-arrow">›</span></a></li>
-          <li><a href="services.html#service-web">Web Development<span class="gf-arrow">›</span></a></li>
-          <li><a href="services.html#service-design">UI / UX Design<span class="gf-arrow">›</span></a></li>
-          <li><a href="services.html#service-auto">Automation<span class="gf-arrow">›</span></a></li>
+         <ul class="gf-links" role="list">
+             <li class="gf-service-item">WordPress Development</li>
+             <li class="gf-service-item">Web Development</li>
+             <li class="gf-service-item">UI / UX Design</li>
+             <li class="gf-service-item">Automation</li>
+</ul>
         </ul>
       </div>
 
@@ -950,7 +977,9 @@
         <a href="faq.html">FAQ</a>
       </nav>
 
-      <p class="gf-craft">Crafted with <span>◆</span> precision</p>
+      <p class="gf-craft">
+  Designed & Engineered by <span>Ganora Technologies</span>
+</p>
     </div>
 
   </footer>
