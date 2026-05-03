@@ -1,54 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - Ganora Technologies</title>
-  <meta name="description"
-    content="Learn how Ganora Technologies handles your data - privacy, security, cookies, and your rights." />
-  <meta property="og:title" content="Privacy Policy - Ganora Technologies" />
-  <meta property="og:description" content="Your privacy and data security matter to us." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ganoratech.com/privacy.html" />
-  <meta property="og:image" content="https://ganoratech.com/assets/ganora_logo.jpeg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://ganoratech.com/privacy.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #090909;
-      --bg-card: #111111;
-      --gold: #C9A84C;
-      --gold-soft: #a8863a;
-      --gold-glow: rgba(201, 168, 76, 0.10);
-      --gold-border: rgba(201, 168, 76, 0.18);
-      --gold-line: rgba(201, 168, 76, 0.30);
-      --white: #EDEAE3;
-      --grey: #7A7670;
-      --grey-light: #555250;
-      --border: rgba(255, 255, 255, 0.06);
-      --max-prose: 680px;
-      --ease: cubic-bezier(.4, 0, .2, 1);
+      --bg:           #090909;
+      --bg-card:      #111111;
+      --gold:         #C9A84C;
+      --gold-soft:    #a8863a;
+      --gold-glow:    rgba(201,168,76,0.10);
+      --gold-border:  rgba(201,168,76,0.18);
+      --gold-line:    rgba(201,168,76,0.30);
+      --white:        #EDEAE3;
+      --grey:         #7A7670;
+      --grey-light:   #555250;
+      --border:       rgba(255,255,255,0.06);
+      --max-prose:    680px;
+      --ease:         cubic-bezier(.4,0,.2,1);
     }
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
       background: var(--bg);
@@ -63,25 +42,20 @@
     /* SCROLL PROGRESS */
     #progress-bar {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       height: 2px;
       width: 0%;
       background: linear-gradient(90deg, var(--gold-soft), var(--gold));
       z-index: 9999;
       transition: width 0.1s linear;
-      box-shadow: 0 0 8px rgba(201, 168, 76, 0.4);
+      box-shadow: 0 0 8px rgba(201,168,76,0.4);
     }
 
-    #header-placeholder,
-    #footer-placeholder {
-      width: 100%;
-    }
+    #header-placeholder, #footer-placeholder { width: 100%; }
 
     body::after {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
       opacity: 0.018;
       pointer-events: none;
@@ -98,12 +72,9 @@
 
     .hero-glow {
       position: absolute;
-      top: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.07) 0%, transparent 65%);
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -125,8 +96,7 @@
     }
 
     .hero-tag-dot {
-      width: 5px;
-      height: 5px;
+      width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--gold);
       animation: blink 2.8s ease-in-out infinite;
@@ -143,10 +113,7 @@
       animation: rise 1s 0.25s var(--ease) forwards;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
+    .hero h1 em { font-style: normal; color: var(--gold); }
 
     .hero-sub {
       margin-top: 18px;
@@ -173,15 +140,13 @@
     }
 
     .hero-meta-sep {
-      width: 3px;
-      height: 3px;
+      width: 3px; height: 3px;
       border-radius: 50%;
       background: var(--gold-border);
     }
 
     .rule {
-      width: 1px;
-      height: 52px;
+      width: 1px; height: 52px;
       background: linear-gradient(to bottom, transparent, var(--gold-border), transparent);
       margin: 0 auto;
     }
@@ -198,10 +163,7 @@
     }
 
     /* STICKY NAV */
-    .side-nav {
-      position: sticky;
-      top: 88px;
-    }
+    .side-nav { position: sticky; top: 88px; }
 
     .side-nav-label {
       font-size: 10px;
@@ -211,9 +173,7 @@
       margin-bottom: 14px;
     }
 
-    .side-nav ul {
-      list-style: none;
-    }
+    .side-nav ul { list-style: none; }
 
     .side-nav ul li a {
       display: block;
@@ -234,9 +194,7 @@
     }
 
     /* SECTIONS */
-    .sections {
-      min-width: 0;
-    }
+    .sections { min-width: 0; }
 
     .section {
       padding: 52px 0;
@@ -246,14 +204,8 @@
       transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
     }
 
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section:last-child {
-      border-bottom: none;
-    }
+    .section.visible { opacity: 1; transform: translateY(0); }
+    .section:last-child { border-bottom: none; }
 
     .section-index {
       display: inline-block;
@@ -283,9 +235,7 @@
       margin-bottom: 12px;
     }
 
-    .section p:last-child {
-      margin-bottom: 0;
-    }
+    .section p:last-child { margin-bottom: 0; }
 
     /* LIST */
     .item-list {
@@ -309,17 +259,13 @@
     .item-list li::before {
       content: '';
       flex-shrink: 0;
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       border-radius: 50%;
       background: var(--gold);
       margin-top: 10px;
     }
 
-    .item-list strong {
-      color: #d6d2ca;
-      font-weight: 500;
-    }
+    .item-list strong { color: #d6d2ca; font-weight: 500; }
 
     /* NOTICE */
     .notice {
@@ -339,10 +285,7 @@
       line-height: 1.72;
     }
 
-    .notice strong {
-      color: var(--gold);
-      font-weight: 500;
-    }
+    .notice strong { color: var(--gold); font-weight: 500; }
 
     /* CONTACT CARD */
     .contact-card {
@@ -357,18 +300,14 @@
       transition: border-color 0.3s;
     }
 
-    .contact-card:hover {
-      border-color: var(--gold-line);
-    }
+    .contact-card:hover { border-color: var(--gold-line); }
 
     .contact-card::after {
       content: '';
       position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06), transparent 70%);
+      top: -50px; right: -50px;
+      width: 180px; height: 180px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06), transparent 70%);
       pointer-events: none;
     }
 
@@ -386,8 +325,7 @@
     }
 
     .pulse {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--gold);
       animation: blink 2.5s ease-in-out infinite;
@@ -420,10 +358,7 @@
       transition: color 0.25s, border-color 0.25s;
     }
 
-    .contact-link:hover {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
+    .contact-link:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
 
     a.inline-link {
       color: var(--gold);
@@ -431,35 +366,17 @@
       border-bottom: 1px solid var(--gold-border);
       transition: color 0.2s, border-color 0.2s;
     }
-
-    a.inline-link:hover {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
+    a.inline-link:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
 
     /* KEYFRAMES */
     @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.3;
-      }
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
     }
 
     /* RESPONSIVE */
@@ -469,28 +386,16 @@
         gap: 0;
         padding: 0 22px 90px;
       }
-
-      .side-nav {
-        display: none;
-      }
+      .side-nav { display: none; }
     }
 
     @media (max-width: 480px) {
-      .hero {
-        padding: 80px 20px 56px;
-      }
-
-      .section {
-        padding: 40px 0;
-      }
-
-      .contact-card {
-        padding: 24px 20px;
-      }
+      .hero { padding: 80px 20px 56px; }
+      .section { padding: 40px 0; }
+      .contact-card { padding: 24px 20px; }
     }
   </style>
 </head>
-
 <body>
 
   <div id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
@@ -509,9 +414,9 @@
     <div class="hero-meta">
       <span>Ganora Technologies</span>
       <span class="hero-meta-sep" aria-hidden="true"></span>
-      <span>Effective: 1 January 2025</span>
+      <span>Effective: 30 April 2026</span>
       <span class="hero-meta-sep" aria-hidden="true"></span>
-      <span>Version 1.0</span>
+      <span>Version 2.0</span>
     </div>
   </section>
 
@@ -543,33 +448,23 @@
       <section class="section" id="introduction">
         <span class="section-index">01 &mdash; Introduction</span>
         <h2>About This Privacy Policy</h2>
-        <p>This Privacy Policy outlines how Ganora Technologies ("we," "us," or "our") collects, uses, stores, and
-          protects information obtained through our website, products, and services. It is designed to be clear, honest,
-          and easy to understand.</p>
-        <p>By accessing or using our services, you acknowledge this policy. If you have concerns about how your data is
-          handled, please reach out to us - we are always open to questions.</p>
-        <p>This policy applies to all individuals who interact with Ganora Technologies' digital services, including
-          visitors, registered users, and customers. It does not apply to third-party websites we may link to.</p>
+        <p>This Privacy Policy outlines how Ganora Technologies ("we," "us," or "our") collects, uses, stores, and protects information obtained through our website, products, and services. It is designed to be clear, honest, and easy to understand.</p>
+        <p>By accessing or using our services, you acknowledge this policy. If you have concerns about how your data is handled, please reach out to us - we are always open to questions.</p>
+        <p>This policy applies to all individuals who interact with Ganora Technologies' digital services, including visitors, registered users, and customers. It does not apply to third-party websites we may link to.</p>
       </section>
 
       <!-- 02 -->
       <section class="section" id="collect">
         <span class="section-index">02 &mdash; Data Collection</span>
         <h2>Information We Collect</h2>
-        <p>We collect only the information reasonably necessary to deliver and improve our services. This may include:
-        </p>
+        <p>We collect only the information reasonably necessary to deliver and improve our services. This may include:</p>
         <ul class="item-list">
-          <li><strong>Personal Information:</strong> Name, email address, and any details you provide when creating an
-            account, submitting a form, or contacting us.</li>
-          <li><strong>Usage Data:</strong> Technical data such as IP addresses, browser type, pages visited, session
-            duration, and referring URLs - collected automatically when you use our services.</li>
-          <li><strong>Device Data:</strong> Information about your device, operating system, and screen resolution to
-            ensure compatibility and performance.</li>
-          <li><strong>Cookies &amp; Tracking:</strong> We use cookies and similar technologies to personalise your
-            experience. See the Cookies Policy section for details.</li>
+          <li><strong>Personal Information:</strong> Name, email address, and any details you provide when creating an account, submitting a form, or contacting us.</li>
+          <li><strong>Usage Data:</strong> Technical data such as IP addresses, browser type, pages visited, session duration, and referring URLs - collected automatically when you use our services.</li>
+          <li><strong>Device Data:</strong> Information about your device, operating system, and screen resolution to ensure compatibility and performance.</li>
+          <li><strong>Cookies &amp; Tracking:</strong> We use cookies and similar technologies to personalise your experience. See the Cookies Policy section for details.</li>
         </ul>
-        <p>We aim to minimise data collection and do not collect sensitive personal categories without explicit consent.
-        </p>
+        <p>We aim to minimise data collection and do not collect sensitive personal categories without explicit consent.</p>
       </section>
 
       <!-- 03 -->
@@ -586,8 +481,7 @@
           <li>Meet legal or regulatory obligations where applicable</li>
         </ul>
         <div class="notice">
-          <p><strong>We do not sell your personal data.</strong> We do not trade, lease, or sell your personal
-            information to any third party for commercial or marketing purposes, ever.</p>
+          <p><strong>We do not sell your personal data.</strong> We do not trade, lease, or sell your personal information to any third party for commercial or marketing purposes, ever.</p>
         </div>
       </section>
 
@@ -595,8 +489,7 @@
       <section class="section" id="protection">
         <span class="section-index">04 &mdash; Security</span>
         <h2>Data Protection</h2>
-        <p>We take reasonable and appropriate technical and organisational measures to protect your personal information
-          from unauthorised access, loss, misuse, disclosure, or alteration.</p>
+        <p>We take reasonable and appropriate technical and organisational measures to protect your personal information from unauthorised access, loss, misuse, disclosure, or alteration.</p>
         <ul class="item-list">
           <li>Data is encrypted in transit using industry-standard protocols</li>
           <li>Access to personal data is restricted to authorised personnel only</li>
@@ -604,99 +497,77 @@
           <li>Data is stored on secure servers with appropriate access controls</li>
         </ul>
         <div class="notice">
-          <p><strong>Please note:</strong> No method of data transmission or storage is 100% secure. While we strive to
-            protect your information using commercially reasonable means, we cannot guarantee absolute security.</p>
+          <p><strong>Please note:</strong> No method of data transmission or storage is 100% secure. While we strive to protect your information using commercially reasonable means, we cannot guarantee absolute security.</p>
         </div>
-        <p>If you believe your account or data has been compromised, please contact us immediately at <a
-            href="mailto:hello.ganora@gmail.com" class="inline-link">hello.ganora@gmail.com</a>.</p>
+        <p>If you believe your account or data has been compromised, please contact us immediately at <a href="mailto:hello.ganora@gmail.com" class="inline-link">hello.ganora@gmail.com</a>.</p>
       </section>
 
       <!-- 05 -->
       <section class="section" id="third-party">
         <span class="section-index">05 &mdash; Third Parties</span>
         <h2>Third-Party Services</h2>
-        <p>We may use trusted third-party tools and integrations to help operate our platform - such as hosting
-          providers, analytics services, and email delivery systems. These partners may access limited information
-          solely to perform their designated functions.</p>
+        <p>We may use trusted third-party tools and integrations to help operate our platform - such as hosting providers, analytics services, and email delivery systems. These partners may access limited information solely to perform their designated functions.</p>
         <ul class="item-list">
           <li>All third-party providers are expected to maintain reasonable privacy standards</li>
           <li>They are not permitted to use your data for their own independent purposes</li>
           <li>We do not share personal information with advertising networks or data brokers</li>
         </ul>
-        <p>Our website may contain links to external websites. We are not responsible for the privacy practices of those
-          sites and encourage you to review their individual policies.</p>
+        <p>Our website may contain links to external websites. We are not responsible for the privacy practices of those sites and encourage you to review their individual policies.</p>
       </section>
 
       <!-- 06 -->
       <section class="section" id="cookies">
         <span class="section-index">06 &mdash; Cookies</span>
         <h2>Cookies Policy</h2>
-        <p>Cookies are small text files stored on your device when you visit a website. We use cookies to make our
-          services work correctly and to improve your experience over time.</p>
+        <p>Cookies are small text files stored on your device when you visit a website. We use cookies to make our services work correctly and to improve your experience over time.</p>
         <ul class="item-list">
-          <li><strong>Essential Cookies:</strong> Required for basic site functionality; cannot be disabled without
-            affecting service quality.</li>
-          <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site in aggregate,
-            allowing us to improve content and performance.</li>
-          <li><strong>Preference Cookies:</strong> Remember your settings and selections across sessions for a more
-            personalised experience.</li>
+          <li><strong>Essential Cookies:</strong> Required for basic site functionality; cannot be disabled without affecting service quality.</li>
+          <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site in aggregate, allowing us to improve content and performance.</li>
+          <li><strong>Preference Cookies:</strong> Remember your settings and selections across sessions for a more personalised experience.</li>
         </ul>
-        <p>You can manage, limit, or disable cookies through your browser settings at any time. Disabling certain
-          cookies may affect availability or functionality of parts of our services. We do not use cookies for
-          cross-site advertising or third-party behavioural tracking.</p>
+        <p>You can manage, limit, or disable cookies through your browser settings at any time. Disabling certain cookies may affect availability or functionality of parts of our services. We do not use cookies for cross-site advertising or third-party behavioural tracking.</p>
       </section>
 
       <!-- 07 -->
       <section class="section" id="rights">
         <span class="section-index">07 &mdash; Your Rights</span>
         <h2>Your Rights &amp; Choices</h2>
-        <p>We respect your right to control your personal information. Depending on your location and applicable
-          regulations, you may be entitled to:</p>
+        <p>We respect your right to control your personal information. Depending on your location and applicable regulations, you may be entitled to:</p>
         <ul class="item-list">
           <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
           <li><strong>Correction:</strong> Ask us to update or correct any inaccurate information</li>
-          <li><strong>Deletion:</strong> Request erasure of your personal data, subject to any legal obligations we may
-            have to retain it</li>
-          <li><strong>Data Portability:</strong> Receive your data in a structured, commonly used format where
-            technically feasible</li>
+          <li><strong>Deletion:</strong> Request erasure of your personal data, subject to any legal obligations we may have to retain it</li>
+          <li><strong>Data Portability:</strong> Receive your data in a structured, commonly used format where technically feasible</li>
           <li><strong>Withdraw Consent:</strong> Opt out of any processing based on your consent at any time</li>
         </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:hello.ganora@gmail.com"
-            class="inline-link">hello.ganora@gmail.com</a>. We may need to verify your identity before fulfilling a
-          request.</p>
+        <p>To exercise any of these rights, contact us at <a href="mailto:hello.ganora@gmail.com" class="inline-link">hello.ganora@gmail.com</a>. We may need to verify your identity before fulfilling a request.</p>
       </section>
 
       <!-- 08 -->
       <section class="section" id="updates">
         <span class="section-index">08 &mdash; Updates</span>
         <h2>Policy Updates</h2>
-        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, the services we
-          offer, or applicable legal requirements. When we do, we will revise the "Effective Date" shown at the top of
-          this page.</p>
-        <p>For material changes, we will make reasonable efforts to notify you - such as via a prominent notice on our
-          website or through the email address associated with your account.</p>
-        <p>Your continued use of our services following any update constitutes your acknowledgement of the revised
-          policy. We encourage you to review this page periodically.</p>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, the services we offer, or applicable legal requirements. When we do, we will revise the "Effective Date" shown at the top of this page.</p>
+        <p>For material changes, we will make reasonable efforts to notify you - such as via a prominent notice on our website or through the email address associated with your account.</p>
+        <p>Your continued use of our services following any update constitutes your acknowledgement of the revised policy. We encourage you to review this page periodically.</p>
       </section>
 
       <!-- 09 -->
       <section class="section" id="contact">
         <span class="section-index">09 &mdash; Contact</span>
         <h2>Contact Us</h2>
-        <p>Privacy is a conversation, not a one-way statement. If you have any questions, concerns, or requests
-          regarding this policy or the handling of your personal data, we want to hear from you.</p>
+        <p>Privacy is a conversation, not a one-way statement. If you have any questions, concerns, or requests regarding this policy or the handling of your personal data, we want to hear from you.</p>
         <div class="contact-card">
           <div class="contact-card-badge">
             <span class="pulse" aria-hidden="true"></span>
-            We respond within 2–5 business days
+            We respond within 2-5 business days
           </div>
           <h3>Ganora Technologies - Privacy</h3>
           <p>Our team is ready to assist with any data or privacy-related enquiries.</p>
           <a href="mailto:hello.ganora@gmail.com" class="contact-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m2 7 10 7 10-7" />
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 7 10 7 10-7"/>
             </svg>
             hello.ganora@gmail.com
           </a>
@@ -710,28 +581,27 @@
 
   <script>
     function loadComponent(id, file) {
-      fetch(file)
-        .then(res => {
-          if (!res.ok) throw new Error(res.status);
-          return res.text();
-        })
-        .then(html => {
-          document.getElementById(id).innerHTML = html;
+  fetch(file)
+    .then(res => {
+      if (!res.ok) throw new Error(res.status);
+      return res.text();
+    })
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
 
-          const scripts = document.getElementById(id).querySelectorAll('script');
-          scripts.forEach(old => {
-            const s = document.createElement('script');
-            s.textContent = old.textContent;
-            document.body.appendChild(s);
-          });
-        })
-        .catch(err => console.error(err));
-    }
+      const scripts = document.getElementById(id).querySelectorAll('script');
+      scripts.forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        document.body.appendChild(s);
+      });
+    })
+    .catch(err => console.error(err));
+}
 
-    loadComponent('header', 'header.html');
-    loadComponent('footer', 'footer.html');
-
+loadComponent('header', 'header.html');
+loadComponent('footer', 'footer.html');
+ 
   </script>
 </body>
-
 </html>
