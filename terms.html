@@ -1,53 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms &amp; Conditions - Ganora Technologies</title>
-  <meta name="description" content="Terms and conditions for using Ganora Technologies services and website." />
-  <meta property="og:title" content="Terms &amp; Conditions - Ganora Technologies" />
-  <meta property="og:description" content="Please read these terms carefully before using our services." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ganoratech.com/terms.html" />
-  <meta property="og:image" content="https://ganoratech.com/assets/ganora_logo.jpeg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://ganoratech.com/terms.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #090909;
-      --bg-card: #111111;
-      --gold: #C9A84C;
-      --gold-soft: #a8863a;
-      --gold-glow: rgba(201, 168, 76, 0.10);
-      --gold-border: rgba(201, 168, 76, 0.18);
-      --gold-line: rgba(201, 168, 76, 0.32);
-      --white: #EDEAE3;
-      --grey: #7A7670;
-      --grey-dim: #50504e;
-      --border: rgba(255, 255, 255, 0.06);
-      --max-prose: 680px;
-      --ease: cubic-bezier(.4, 0, .2, 1);
+      --bg:          #090909;
+      --bg-card:     #111111;
+      --gold:        #C9A84C;
+      --gold-soft:   #a8863a;
+      --gold-glow:   rgba(201,168,76,0.10);
+      --gold-border: rgba(201,168,76,0.18);
+      --gold-line:   rgba(201,168,76,0.32);
+      --white:       #EDEAE3;
+      --grey:        #7A7670;
+      --grey-dim:    #50504e;
+      --border:      rgba(255,255,255,0.06);
+      --max-prose:   680px;
+      --ease:        cubic-bezier(.4,0,.2,1);
     }
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
       background: var(--bg);
@@ -62,8 +42,7 @@
     /* ── GRAIN ── */
     body::after {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
       opacity: 0.017;
       pointer-events: none;
@@ -73,21 +52,16 @@
     /* ── SCROLL PROGRESS ── */
     #prog {
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      width: 0%;
+      top: 0; left: 0;
+      height: 2px; width: 0%;
       background: linear-gradient(90deg, var(--gold-soft), var(--gold));
-      box-shadow: 0 0 8px rgba(201, 168, 76, .45);
+      box-shadow: 0 0 8px rgba(201,168,76,.45);
       z-index: 9999;
       transition: width .08s linear;
     }
 
     /* ── PARTIALS ── */
-    #header-placeholder,
-    #footer-placeholder {
-      width: 100%;
-    }
+    #header-placeholder, #footer-placeholder { width: 100%; }
 
     /* ── HERO ── */
     .hero {
@@ -99,12 +73,9 @@
 
     .hero-glow {
       position: absolute;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 720px;
-      height: 520px;
-      background: radial-gradient(ellipse, rgba(201, 168, 76, .07) 0%, transparent 65%);
+      top: -100px; left: 50%; transform: translateX(-50%);
+      width: 720px; height: 520px;
+      background: radial-gradient(ellipse, rgba(201,168,76,.07) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -126,8 +97,7 @@
     }
 
     .chip-dot {
-      width: 5px;
-      height: 5px;
+      width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--gold);
       animation: pulse 2.6s ease-in-out infinite;
@@ -144,10 +114,7 @@
       animation: rise 1s .25s var(--ease) forwards;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
+    .hero h1 em { font-style: normal; color: var(--gold); }
 
     .hero-sub {
       margin-top: 18px;
@@ -174,16 +141,14 @@
     }
 
     .meta-dot {
-      width: 3px;
-      height: 3px;
+      width: 3px; height: 3px;
       border-radius: 50%;
       background: var(--gold-border);
     }
 
     /* ── RULE ── */
     .rule {
-      width: 1px;
-      height: 50px;
+      width: 1px; height: 50px;
       background: linear-gradient(to bottom, transparent, var(--gold-border), transparent);
       margin: 0 auto;
     }
@@ -200,10 +165,7 @@
     }
 
     /* ── SIDE NAV ── */
-    .sidenav {
-      position: sticky;
-      top: 86px;
-    }
+    .sidenav { position: sticky; top: 86px; }
 
     .sidenav-label {
       font-size: 10px;
@@ -213,9 +175,7 @@
       margin-bottom: 14px;
     }
 
-    .sidenav ul {
-      list-style: none;
-    }
+    .sidenav ul { list-style: none; }
 
     .sidenav ul li a {
       display: block;
@@ -235,27 +195,17 @@
     }
 
     /* ── SECTIONS ── */
-    .sections {
-      min-width: 0;
-    }
+    .sections { min-width: 0; }
 
     .sec {
-      padding: 50px 0;
-      border-bottom: 1px solid var(--border);
-      opacity: 1;
-      /* 🔥 change */
-      transform: none;
-      /* 🔥 change */
-    }
+  padding: 50px 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 1;              /* 🔥 change */
+  transform: none;         /* 🔥 change */
+}
 
-    .sec.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .sec:last-child {
-      border-bottom: none;
-    }
+    .sec.visible { opacity: 1; transform: translateY(0); }
+    .sec:last-child { border-bottom: none; }
 
     .sec-num {
       display: inline-block;
@@ -285,9 +235,7 @@
       margin-bottom: 11px;
     }
 
-    .sec p:last-child {
-      margin-bottom: 0;
-    }
+    .sec p:last-child { margin-bottom: 0; }
 
     /* ── LIST ── */
     .tlist {
@@ -311,17 +259,13 @@
     .tlist li::before {
       content: '';
       flex-shrink: 0;
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       border-radius: 50%;
       background: var(--gold);
       margin-top: 10px;
     }
 
-    .tlist strong {
-      color: #d4d0c8;
-      font-weight: 500;
-    }
+    .tlist strong { color: #d4d0c8; font-weight: 500; }
 
     /* ── NOTICE ── */
     .notice {
@@ -341,10 +285,7 @@
       line-height: 1.72;
     }
 
-    .notice strong {
-      color: var(--gold);
-      font-weight: 500;
-    }
+    .notice strong { color: var(--gold); font-weight: 500; }
 
     /* ── CONTACT CARD ── */
     .ccard {
@@ -359,18 +300,14 @@
       transition: border-color .28s;
     }
 
-    .ccard:hover {
-      border-color: var(--gold-line);
-    }
+    .ccard:hover { border-color: var(--gold-line); }
 
     .ccard::after {
       content: '';
       position: absolute;
-      top: -55px;
-      right: -55px;
-      width: 190px;
-      height: 190px;
-      background: radial-gradient(ellipse, rgba(201, 168, 76, .06), transparent 70%);
+      top: -55px; right: -55px;
+      width: 190px; height: 190px;
+      background: radial-gradient(ellipse, rgba(201,168,76,.06), transparent 70%);
       pointer-events: none;
     }
 
@@ -388,8 +325,7 @@
     }
 
     .ccard-pulse {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--gold);
       animation: pulse 2.4s ease-in-out infinite;
@@ -421,10 +357,7 @@
       transition: color .22s, border-color .22s;
     }
 
-    .clink:hover {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, .28);
-    }
+    .clink:hover { color: var(--white); border-color: rgba(255,255,255,.28); }
 
     .ilink {
       color: var(--gold);
@@ -433,65 +366,32 @@
       transition: color .2s, border-color .2s;
     }
 
-    .ilink:hover {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, .25);
-    }
+    .ilink:hover { color: var(--white); border-color: rgba(255,255,255,.25); }
 
     /* ── KEYFRAMES ── */
     @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.28;
-      }
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.28; }
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
-      .layout {
-        grid-template-columns: 1fr;
-        gap: 0;
-        padding: 0 22px 88px;
-      }
-
-      .sidenav {
-        display: none;
-      }
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 0 22px 88px; }
+      .sidenav { display: none; }
     }
 
     @media (max-width: 480px) {
-      .hero {
-        padding: 78px 20px 54px;
-      }
-
-      .sec {
-        padding: 38px 0;
-      }
-
-      .ccard {
-        padding: 22px 18px;
-      }
+      .hero { padding: 78px 20px 54px; }
+      .sec  { padding: 38px 0; }
+      .ccard { padding: 22px 18px; }
     }
   </style>
 </head>
-
 <body>
 
   <div id="header"></div>
@@ -510,9 +410,9 @@
     <div class="hero-meta">
       <span>Ganora Technologies</span>
       <span class="meta-dot" aria-hidden="true"></span>
-      <span>Effective: 1 January 2025</span>
+      <span>Effective: 30 April 2026</span>
       <span class="meta-dot" aria-hidden="true"></span>
-      <span>Version 1.0</span>
+      <span>Version 2.0</span>
     </div>
   </section>
 
@@ -547,47 +447,35 @@
       <section class="sec" id="introduction">
         <span class="sec-num">01 &mdash; Introduction</span>
         <h2>Introduction</h2>
-        <p>Welcome to Ganora Technologies. These Terms &amp; Conditions govern your access to and use of our website,
-          services, and any related offerings provided by Ganora Technologies ("we," "us," or "our").</p>
-        <p>By visiting our website or engaging with our services, you enter into a binding agreement with Ganora
-          Technologies under the terms outlined in this document. Please read it carefully - if you disagree with any
-          part, please refrain from using our services.</p>
-        <p>These terms apply to all visitors, prospective clients, and existing clients who interact with Ganora
-          Technologies in any capacity.</p>
+        <p>Welcome to Ganora Technologies. These Terms &amp; Conditions govern your access to and use of our website, services, and any related offerings provided by Ganora Technologies ("we," "us," or "our").</p>
+        <p>By visiting our website or engaging with our services, you enter into a binding agreement with Ganora Technologies under the terms outlined in this document. Please read it carefully - if you disagree with any part, please refrain from using our services.</p>
+        <p>These terms apply to all visitors, prospective clients, and existing clients who interact with Ganora Technologies in any capacity.</p>
       </section>
 
       <!-- 02 · ACCEPTANCE -->
       <section class="sec" id="acceptance">
         <span class="sec-num">02 &mdash; Acceptance</span>
         <h2>Acceptance of Terms</h2>
-        <p>By accessing or using our website and services, you confirm that you have read, understood, and agreed to be
-          bound by these Terms &amp; Conditions, along with our Privacy Policy.</p>
+        <p>By accessing or using our website and services, you confirm that you have read, understood, and agreed to be bound by these Terms &amp; Conditions, along with our Privacy Policy.</p>
         <div class="notice">
-          <p><strong>Important:</strong> If you are using our services on behalf of a business or organisation, you
-            represent that you have the authority to bind that entity to these terms.</p>
+          <p><strong>Important:</strong> If you are using our services on behalf of a business or organisation, you represent that you have the authority to bind that entity to these terms.</p>
         </div>
-        <p>Your continued use of our services following any updates to these terms constitutes your acceptance of the
-          revised version. We encourage you to review these terms periodically.</p>
+        <p>Your continued use of our services following any updates to these terms constitutes your acceptance of the revised version. We encourage you to review these terms periodically.</p>
       </section>
 
       <!-- 03 · SERVICES -->
       <section class="sec" id="services">
         <span class="sec-num">03 &mdash; Services</span>
         <h2>Services Description</h2>
-        <p>Ganora Technologies provides a range of technology-focused services, which may include but are not limited
-          to:</p>
+        <p>Ganora Technologies provides a range of technology-focused services, which may include but are not limited to:</p>
         <ul class="tlist">
-          <li><strong>Web Design &amp; Development:</strong> Custom design and development of websites and web
-            applications tailored to client requirements.</li>
+          <li><strong>Web Design &amp; Development:</strong> Custom design and development of websites and web applications tailored to client requirements.</li>
           <li><strong>UI/UX Design:</strong> User interface and experience design for digital products.</li>
-          <li><strong>Digital Consulting:</strong> Strategic guidance on technology, digital presence, and product
-            development.</li>
-          <li><strong>Branding &amp; Identity:</strong> Visual identity design including logos, style guides, and brand
-            assets.</li>
+          <li><strong>Digital Consulting:</strong> Strategic guidance on technology, digital presence, and product development.</li>
+          <li><strong>Branding &amp; Identity:</strong> Visual identity design including logos, style guides, and brand assets.</li>
           <li><strong>Ongoing Support:</strong> Maintenance, updates, and technical support as agreed per project.</li>
         </ul>
-        <p>The specific scope, deliverables, timelines, and terms of any engagement are defined and agreed upon
-          separately with each client before work commences.</p>
+        <p>The specific scope, deliverables, timelines, and terms of any engagement are defined and agreed upon separately with each client before work commences.</p>
       </section>
 
       <!-- 04 · RESPONSIBILITIES -->
@@ -604,8 +492,7 @@
           <li>Respect the intellectual property rights of Ganora Technologies and third parties</li>
         </ul>
         <div class="notice">
-          <p><strong>Misuse Policy:</strong> Any attempt to disrupt, exploit, or misuse our services or website will
-            result in immediate termination of access and may be reported to relevant authorities.</p>
+          <p><strong>Misuse Policy:</strong> Any attempt to disrupt, exploit, or misuse our services or website will result in immediate termination of access and may be reported to relevant authorities.</p>
         </div>
       </section>
 
@@ -613,29 +500,21 @@
       <section class="sec" id="ip">
         <span class="sec-num">05 &mdash; Intellectual Property</span>
         <h2>Intellectual Property</h2>
-        <p>All content, materials, code, designs, graphics, logos, and assets created by or belonging to Ganora
-          Technologies - including those on this website - are the intellectual property of Ganora Technologies unless
-          explicitly stated otherwise.</p>
+        <p>All content, materials, code, designs, graphics, logos, and assets created by or belonging to Ganora Technologies - including those on this website - are the intellectual property of Ganora Technologies unless explicitly stated otherwise.</p>
         <ul class="tlist">
-          <li>You may not reproduce, distribute, modify, or use our proprietary materials without written permission
-          </li>
-          <li>Work created for clients is governed by the intellectual property clauses in the individual project
-            agreement</li>
-          <li>Upon full payment for a project, clients receive the agreed usage rights as specified in their contract
-          </li>
+          <li>You may not reproduce, distribute, modify, or use our proprietary materials without written permission</li>
+          <li>Work created for clients is governed by the intellectual property clauses in the individual project agreement</li>
+          <li>Upon full payment for a project, clients receive the agreed usage rights as specified in their contract</li>
           <li>Any tools, frameworks, or third-party components used remain subject to their respective licences</li>
         </ul>
-        <p>Unauthorised use of our intellectual property may result in legal action. If you wish to use any of our
-          materials, please contact us at <a href="mailto:hello.ganora@gmail.com"
-            class="ilink">hello.ganora@gmail.com</a>.</p>
+        <p>Unauthorised use of our intellectual property may result in legal action. If you wish to use any of our materials, please contact us at <a href="mailto:hello.ganora@gmail.com" class="ilink">hello.ganora@gmail.com</a>.</p>
       </section>
 
       <!-- 06 · PAYMENTS -->
       <section class="sec" id="payments">
         <span class="sec-num">06 &mdash; Payments &amp; Agreements</span>
         <h2>Payments &amp; Project Agreements</h2>
-        <p>Financial terms, payment schedules, refund conditions, and project-specific agreements are established
-          individually and documented in a separate agreement or proposal prior to the commencement of any project.</p>
+        <p>Financial terms, payment schedules, refund conditions, and project-specific agreements are established individually and documented in a separate agreement or proposal prior to the commencement of any project.</p>
         <ul class="tlist">
           <li>A formal agreement or proposal will outline all commercial terms for each engagement</li>
           <li>Payment milestones and due dates are as specified in the project agreement</li>
@@ -643,9 +522,7 @@
           <li>Any changes to scope mid-project will be agreed upon in writing before proceeding</li>
         </ul>
         <div class="notice">
-          <p><strong>Note:</strong> These Terms &amp; Conditions do not substitute a project-specific agreement. Always
-            refer to your signed proposal or contract for the specific terms of your engagement with Ganora
-            Technologies.</p>
+          <p><strong>Note:</strong> These Terms &amp; Conditions do not substitute a project-specific agreement. Always refer to your signed proposal or contract for the specific terms of your engagement with Ganora Technologies.</p>
         </div>
       </section>
 
@@ -653,80 +530,58 @@
       <section class="sec" id="liability">
         <span class="sec-num">07 &mdash; Limitation of Liability</span>
         <h2>Limitation of Liability</h2>
-        <p>To the fullest extent permitted by applicable law, Ganora Technologies shall not be liable for any indirect,
-          incidental, consequential, or punitive damages arising from your use of our services or website.</p>
+        <p>To the fullest extent permitted by applicable law, Ganora Technologies shall not be liable for any indirect, incidental, consequential, or punitive damages arising from your use of our services or website.</p>
         <ul class="tlist">
-          <li>We do not guarantee that our website will be uninterrupted, error-free, or completely secure at all times
-          </li>
-          <li>We are not responsible for damages resulting from third-party tools, platforms, or services integrated
-            into your project</li>
-          <li>Our total liability in connection with any project shall not exceed the total fees paid by the client for
-            that specific engagement</li>
-          <li>We are not liable for business losses, data loss, or revenue impact arising from service interruptions
-          </li>
+          <li>We do not guarantee that our website will be uninterrupted, error-free, or completely secure at all times</li>
+          <li>We are not responsible for damages resulting from third-party tools, platforms, or services integrated into your project</li>
+          <li>Our total liability in connection with any project shall not exceed the total fees paid by the client for that specific engagement</li>
+          <li>We are not liable for business losses, data loss, or revenue impact arising from service interruptions</li>
         </ul>
-        <p>Nothing in these terms excludes or limits liability for death, personal injury, or fraud caused by our
-          negligence, as required by law.</p>
+        <p>Nothing in these terms excludes or limits liability for death, personal injury, or fraud caused by our negligence, as required by law.</p>
       </section>
 
       <!-- 08 · TERMINATION -->
       <section class="sec" id="termination">
         <span class="sec-num">08 &mdash; Termination</span>
         <h2>Termination</h2>
-        <p>Ganora Technologies reserves the right to suspend or terminate access to our services, at our sole
-          discretion, if we determine that a user or client has violated these terms or engaged in conduct that is
-          harmful, unlawful, or disruptive.</p>
+        <p>Ganora Technologies reserves the right to suspend or terminate access to our services, at our sole discretion, if we determine that a user or client has violated these terms or engaged in conduct that is harmful, unlawful, or disruptive.</p>
         <ul class="tlist">
           <li>We may terminate or suspend access immediately, without prior notice, in cases of serious misuse</li>
-          <li>Clients wishing to terminate an ongoing project agreement should refer to the termination clause in their
-            individual contract</li>
+          <li>Clients wishing to terminate an ongoing project agreement should refer to the termination clause in their individual contract</li>
           <li>Upon termination, rights granted to you cease immediately, and any outstanding fees become due</li>
         </ul>
-        <p>Termination of services does not affect any rights or obligations that arose before the date of termination.
-        </p>
+        <p>Termination of services does not affect any rights or obligations that arose before the date of termination.</p>
       </section>
 
       <!-- 09 · THIRD PARTY -->
       <section class="sec" id="third-party">
         <span class="sec-num">09 &mdash; Third-Party Links</span>
         <h2>Third-Party Links &amp; Services</h2>
-        <p>Our website or services may contain links to external websites, tools, or resources that are not operated or
-          controlled by Ganora Technologies. These are provided for convenience and informational purposes only.</p>
+        <p>Our website or services may contain links to external websites, tools, or resources that are not operated or controlled by Ganora Technologies. These are provided for convenience and informational purposes only.</p>
         <ul class="tlist">
-          <li>We do not endorse, monitor, or assume responsibility for the content or practices of any third-party
-            websites</li>
-          <li>Accessing third-party links is at your own risk and subject to the terms and policies of those websites
-          </li>
+          <li>We do not endorse, monitor, or assume responsibility for the content or practices of any third-party websites</li>
+          <li>Accessing third-party links is at your own risk and subject to the terms and policies of those websites</li>
           <li>We are not responsible for any loss or damage arising from your use of external links or services</li>
         </ul>
-        <p>We encourage you to review the privacy policies and terms of any third-party services you choose to access
-          through our platform.</p>
+        <p>We encourage you to review the privacy policies and terms of any third-party services you choose to access through our platform.</p>
       </section>
 
       <!-- 10 · CHANGES -->
       <section class="sec" id="changes">
         <span class="sec-num">10 &mdash; Changes to Terms</span>
         <h2>Changes to Terms</h2>
-        <p>Ganora Technologies reserves the right to modify, update, or replace these Terms &amp; Conditions at any
-          time. Changes will become effective upon publication on this page, with the "Effective Date" updated
-          accordingly.</p>
-        <p>We will make reasonable efforts to notify users of significant changes - such as a notice on our website.
-          However, it is your responsibility to review these terms periodically to stay informed of any updates.</p>
-        <p>Continued use of our services following the posting of any changes constitutes your acceptance of the revised
-          terms.</p>
+        <p>Ganora Technologies reserves the right to modify, update, or replace these Terms &amp; Conditions at any time. Changes will become effective upon publication on this page, with the "Effective Date" updated accordingly.</p>
+        <p>We will make reasonable efforts to notify users of significant changes - such as a notice on our website. However, it is your responsibility to review these terms periodically to stay informed of any updates.</p>
+        <p>Continued use of our services following the posting of any changes constitutes your acceptance of the revised terms.</p>
       </section>
 
       <!-- 11 · GOVERNING LAW -->
       <section class="sec" id="law">
         <span class="sec-num">11 &mdash; Governing Law</span>
         <h2>Governing Law</h2>
-        <p>These Terms &amp; Conditions are governed by and construed in accordance with the laws of the jurisdiction in
-          which Ganora Technologies is registered and operates. Any disputes arising from or relating to these terms
-          shall be subject to the exclusive jurisdiction of the courts of that jurisdiction.</p>
+        <p>These Terms &amp; Conditions are governed by and construed in accordance with the laws of the jurisdiction in which Ganora Technologies is registered and operates. Any disputes arising from or relating to these terms shall be subject to the exclusive jurisdiction of the courts of that jurisdiction.</p>
         <div class="notice">
-          <p><strong>Note:</strong> If you are accessing our services from a different country, local laws may apply in
-            certain situations. We recommend consulting a legal professional if you have jurisdiction-specific concerns.
-          </p>
+          <p><strong>Note:</strong> If you are accessing our services from a different country, local laws may apply in certain situations. We recommend consulting a legal professional if you have jurisdiction-specific concerns.</p>
         </div>
         <p>We aim to resolve any disputes amicably and in good faith before pursuing formal legal proceedings.</p>
       </section>
@@ -735,8 +590,7 @@
       <section class="sec" id="contact">
         <span class="sec-num">12 &mdash; Contact</span>
         <h2>Contact Information</h2>
-        <p>If you have any questions, concerns, or require clarification regarding these Terms &amp; Conditions, please
-          do not hesitate to reach out to our team.</p>
+        <p>If you have any questions, concerns, or require clarification regarding these Terms &amp; Conditions, please do not hesitate to reach out to our team.</p>
         <div class="ccard">
           <div class="ccard-badge">
             <span class="ccard-pulse" aria-hidden="true"></span>
@@ -745,10 +599,9 @@
           <h3>Ganora Technologies - Legal &amp; Support</h3>
           <p>We are happy to clarify any part of these terms or address any concerns you may have.</p>
           <a href="mailto:hello.ganora@gmail.com" class="clink">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m2 7 10 7 10-7" />
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 7 10 7 10-7"/>
             </svg>
             hello.ganora@gmail.com
           </a>
@@ -757,33 +610,32 @@
 
     </main>
   </div>
-  <div id="footer"></div>
-  <script>
-    function loadComponent(id, file) {
-      fetch(file)
-        .then(res => {
-          if (!res.ok) throw new Error(res.status);
-          return res.text();
-        })
-        .then(html => {
-          document.getElementById(id).innerHTML = html;
+<div id="footer"></div>
+ <script>
+function loadComponent(id, file) {
+  fetch(file)
+    .then(res => {
+      if (!res.ok) throw new Error(res.status);
+      return res.text();
+    })
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
 
-          // run scripts inside loaded file
-          const scripts = document.getElementById(id).querySelectorAll('script');
-          scripts.forEach(old => {
-            const s = document.createElement('script');
-            s.textContent = old.textContent;
-            document.body.appendChild(s);
-          });
-        })
-        .catch(err => console.error("Error loading:", file, err));
-    }
+      // run scripts inside loaded file
+      const scripts = document.getElementById(id).querySelectorAll('script');
+      scripts.forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        document.body.appendChild(s);
+      });
+    })
+    .catch(err => console.error("Error loading:", file, err));
+}
 
-    loadComponent('header', 'header.html');
-    loadComponent('footer', 'footer.html');
+loadComponent('header', 'header.html');
+loadComponent('footer', 'footer.html');
 
-  </script>
-
+</script>
+  
 </body>
-
 </html>
