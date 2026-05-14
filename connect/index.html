@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ganora Technologies — Engineering Digital Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #d4af37;
+    --gold-light: #f0cf5b;
+    --gold-dim: rgba(201,168,76,0.18);
+    --gold-glow: rgba(201,168,76,0.08);
+    --white: #f5f0e8;
+    --white-dim: rgba(245,240,232,0.55);
+    --black: #080808;
+    --surface: rgba(255,255,255,0.025);
+    --border: rgba(212,175,55,0.24);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── BACKGROUND CANVAS ── */
+  #bg-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Luxury ambient layers */
+  .bg-layer {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  }
+
+  .bg-radial-top {
+    background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  }
+
+  .bg-radial-center {
+    background: radial-gradient(ellipse 90% 60% at 50% 50%, rgba(201,168,76,0.03) 0%, transparent 65%);
+  }
+
+  .bg-radial-bottom {
+    background: radial-gradient(ellipse 60% 40% at 50% 110%, rgba(201,168,76,0.05) 0%, transparent 70%);
+  }
+
+  /* Subtle grid texture */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .bg-noise{
+
+  position:fixed;
+  inset:0;
+
+  background-image:
+  radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+
+  background-size:4px 4px;
+
+  opacity:.035;
+
+  pointer-events:none;
+
+  z-index:0;
+}
+
+  /* Floating particles */
+  .particle {
+    position: fixed;
+    width: 1.5px; height: 1.5px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleDrift var(--dur, 12s) var(--delay, 0s) infinite ease-in-out;
+  }
+
+  @keyframes particleDrift {
+    0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10%  { opacity: 0.4; }
+    90%  { opacity: 0.15; }
+    100% { transform: translateY(-10vh) translateX(var(--drift, 30px)); opacity: 0; }
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 24px 80px;
+    gap: 0;
+  }
+
+  /* ── LOGO BLOCK ── */
+  .logo-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    margin-bottom: 42px;
+    animation: logoReveal 1.8s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes logoReveal {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo-halo {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    animation: logoFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  /* Gold ambient halo behind logo */
+  .logo-halo::before {
+    content: '';
+    position: absolute;
+    width: 220px; height: 120px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: haloPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes haloPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.12); }
+  }
+
+  /* Logo mark — G lettermark */
+  .logo-mark {
+    position: relative; z-index: 1;
+    width: 76px; height: 76px;
+    border: 1.5px solid rgba(201,168,76,0.5);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(201,168,76,0.04);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 0 30px rgba(201,168,76,0.12),
+      0 0 60px rgba(201,168,76,0.06),
+      inset 0 1px 0 rgba(201,168,76,0.25);
+  }
+
+  .logo-mark-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    letter-spacing: -1px;
+    text-shadow: 0 0 20px rgba(201,168,76,0.6), 0 0 40px rgba(201,168,76,0.2);
+  }
+
+  /* Shimmer sweep */
+  .logo-mark::after {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 17px;
+    background: linear-gradient(105deg, transparent 40%, rgba(201,168,76,0.18) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: shimmerSweep 4s 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmerSweep {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ── WORDMARK ── */
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 0 0 40px rgba(245,240,232,0.1);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .wordmark span {
+    color: var(--gold-light);
+    text-shadow: 0 0 24px rgba(201,168,76,0.4);
+  }
+
+  .divider-line {
+    width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 16px auto;
+    opacity: 0.6;
+  }
+
+  .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(11px, 1.6vw, 13px);
+    font-weight: 200;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    text-align: center;
+  }
+
+  /* ── BUTTONS GRID ── */
+  .buttons-section {
+    width: 100%; max-width: 680px;
+    animation: fadeUp 1.4s 0.5s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.5);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Luxury button */
+  .btn {
+    display: flex; align-items: center; gap: 13px;
+    padding: 15px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    backdrop-filter: blur(16px);
+    transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.08), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 32px rgba(0,0,0,0.4),
+      0 0 20px rgba(201,168,76,0.08),
+      inset 0 1px 0 rgba(201,168,76,0.15);
+    color: var(--white);
+    backdrop-filter: blur(20px);
+  }
+
+  .btn:hover::before { opacity: 1; }
+  .btn:hover::after { left: 140%; }
+
+  .btn:active { transform: translateY(0px); }
+
+  /* Icon wrapper */
+  .btn-icon {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover .btn-icon { transform: scale(1.08); }
+
+  .btn-icon svg { width: 18px; height: 18px; }
+
+  .btn-text { flex: 1; }
+  .btn-name { display: block; font-size: 13px; font-weight: 300; }
+  .btn-sub  { display: block; font-size: 10px; color: rgba(201,168,76,0.5); letter-spacing: 0.1em; margin-top: 1px; }
+
+  .btn-arrow {
+    font-size: 14px;
+    color: rgba(201,168,76,0.35);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .btn:hover .btn-arrow { transform: translateX(3px); color: rgba(201,168,76,0.7); }
+
+  /* Platform-specific icon bg tints */
+  .icon-ig   { background: rgba(225,48,108,0.12); }
+  .icon-li   { background: rgba(10,102,194,0.15); }
+  .icon-x    { background: rgba(255,255,255,0.07); }
+  .icon-yt   { background: rgba(255,0,0,0.12); }
+  .icon-web  { background: rgba(201,168,76,0.1); }
+  .icon-wa   { background: rgba(37,211,102,0.12); }
+  .icon-em   { background: rgba(201,168,76,0.1); }
+  .icon-call { background: rgba(201,168,76,0.1); }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 56px;
+    text-align: center;
+    animation: fadeUp 1.4s 0.9s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.4);
+  }
+
+  .footer-tagline span { color: rgba(201,168,76,0.7); }
+
+  .footer-copy {
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.2);
+    font-weight: 200;
+  }
+
+  @media (max-width: 900px){
+
+  .page{
+    padding: 70px 22px 80px;
+  }
+
+  .wordmark{
+    font-size: clamp(30px, 6vw, 40px);
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+  }
+
+  .buttons-section{
+    max-width: 620px;
+  }
+
+  .official-logo{
+    width: 145px;
+  }
+}
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 520px){
+
+  .buttons-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .page{
+    padding: 50px 18px 70px;
+  }
+
+  .logo-wrap{
+    margin-bottom: 34px;
+  }
+
+  .official-logo{
+    width: 132px;
+  }
+
+  .wordmark{
+
+    font-size: 24px;
+
+    letter-spacing: 0.16em;
+
+    line-height: 1.35;
+
+    text-align:center;
+  }
+
+  .tagline{
+
+    font-size:10px;
+
+    letter-spacing:0.26em;
+
+    line-height:1.8;
+  }
+
+  .btn{
+
+    padding:16px 18px;
+
+    border-radius:14px;
+  }
+
+  .btn-name{
+    font-size:13px;
+  }
+
+  .btn-sub{
+    font-size:10px;
+  }
+
+  .footer{
+    margin-top:42px;
+  }
+
+  .footer-tagline{
+    font-size:11px;
+    letter-spacing:.35em;
+  }
+}
+
+
+  .official-logo{
+
+  width: 155px;
+
+  position: relative;
+  z-index: 2;
+
+  object-fit: contain;
+
+  opacity: .96;
+
+  border-radius: 50%;
+
+  mix-blend-mode: screen;
+
+  filter:
+
+    brightness(1.02)
+
+    contrast(1.04)
+
+    drop-shadow(0 0 10px rgba(201,168,76,0.10))
+
+    drop-shadow(0 0 26px rgba(201,168,76,0.08));
+
+  animation:
+    luxuryFloat 6s ease-in-out infinite;
+}
+
+/* floating motion */
+@keyframes luxuryFloat{
+
+  0%,100%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-8px);
+  }
+}
+
+/* halo glow */
+.logo-halo::before{
+
+  content:'';
+
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(201,168,76,0.09),
+    transparent 72%
+  );
+
+  filter:blur(30px);
+
+  z-index:0;
+
+  animation:
+    haloPulse 5s ease-in-out infinite;
+}
+
+@keyframes haloPulse{
+
+  0%,100%{
+    opacity:.6;
+    transform:scale(1);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.08);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient background layers -->
+<div class="bg-layer bg-radial-top"></div>
+<div class="bg-layer bg-radial-center"></div>
+<div class="bg-layer bg-radial-bottom"></div>
+<div class="bg-layer bg-grid"></div>
+
+<!-- Floating particles (generated by JS) -->
+<div id="particles"></div>
+
+<main class="page">
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <div class="logo-halo">
+
+  <img
+    src="ganora-logo.png"
+    alt="Ganora Technologies"
+    class="official-logo"
+  />
+
+</div>
+    <h1 class="wordmark"><span>Ganora</span> Technologies</h1>
+    <div class="divider-line"></div>
+    <p class="tagline">Engineering Digital Excellence</p>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="buttons-section">
+    <p class="section-label">Connect with us</p>
+    <div class="buttons-grid">
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/ganoratech2.0" target="_blank" rel="noopener" class="btn">
+        <div class="btn-icon icon-ig">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-grad)" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.2" stroke="url(#ig-grad)" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-grad)"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">Instagram</span>
+          <span class="btn-sub">@ganoratech2.0</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/ganoratechpriyanka" target="_blank" rel="noopener" class="btn">
+        <div class="btn-icon icon-li">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="4" fill="#0A66C2"/>
+            <path d="M7.2 9.8H5V18h2.2V9.8zM6.1 8.8a1.3 1.3 0 100-2.6 1.3 1.3 0 000 2.6z" fill="white"/>
+            <path d="M19 13.4c0-2.1-.9-3.6-2.9-3.6-1.1 0-1.9.6-2.3 1.3V9.8H11.6V18H13.8v-4.5c0-.9.4-1.8 1.5-1.8s1.5.9 1.5 1.8V18H19v-4.6z" fill="white"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">LinkedIn</span>
+          <span class="btn-sub">Professional Network</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- X / Twitter -->
+      <a href="https://x.com/ganoratechv2" target="_blank" rel="noopener" class="btn">
+        <div class="btn-icon icon-x">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.058 2.25H9.08l4.261 5.632 4.903-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">X / Twitter</span>
+          <span class="btn-sub">@ganoratechv2</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/watch?v=YHkahtsp1qQ&feature=shared" target="_blank" rel="noopener" class="btn">
+        <div class="btn-icon icon-yt">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" fill="#FF0000"/>
+            <path d="M9.75 15.02l5.75-3.02-5.75-3.02v6.04z" fill="white"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">YouTube</span>
+          <span class="btn-sub">Watch our content</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- Website -->
+      <a href="https://ganoratech.com/" target="_blank" rel="noopener" class="btn">
+        <div class="btn-icon icon-web">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.85)" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3c0 0-4 3.6-4 9s4 9 4 9"/>
+            <path d="M12 3c0 0 4 3.6 4 9s-4 9-4 9"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="4" y1="7.5" x2="20" y2="7.5"/>
+            <line x1="4" y1="16.5" x2="20" y2="16.5"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">Website</span>
+          <span class="btn-sub">ganoratech.com</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/918431221552" target="_blank" rel="noopener" class="btn">
+        <div class="btn-icon icon-wa">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.82.487 3.527 1.338 5.006L2 22l5.104-1.328A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="#25D366"/>
+            <path d="M8.5 8.5s.5-1 1.5-1 1.5 1 2 2c.25.5.25 1-.25 1.5l-.5.5s.5 1.5 2 2.5l.5-.5c.5-.5 1-.5 1.5-.25 1 .5 2 1.5 2 2s-1 1.5-1.5 1.5c-2 0-5-2.5-6.5-4.5-1-1.5-1.5-3-1.5-3.25.25-.5.75-.5.75-.5z" fill="white" stroke="none"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">WhatsApp</span>
+          <span class="btn-sub">+91 84312 21552</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:hello.ganora@gmail.com" class="btn">
+        <div class="btn-icon icon-em">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.85)" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <polyline points="3,5 12,13 21,5"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">Email</span>
+          <span class="btn-sub">hello.ganora@gmail.com</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- Call Now -->
+      <a href="tel:+918431221552" class="btn">
+        <div class="btn-icon icon-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.85)" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.6 10.8a15.6 15.6 0 006.6 6.6l2.2-2.2a1 1 0 011.05-.24c1.14.37 2.38.57 3.55.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6.5a1 1 0 011-1H7.5a1 1 0 011 1c0 1.18.2 2.42.57 3.55a1 1 0 01-.24 1.05L6.6 10.8z"/>
+          </svg>
+        </div>
+        <span class="btn-text">
+          <span class="btn-name">Call Now</span>
+          <span class="btn-sub">+91 84312 21552</span>
+        </span>
+        <span class="btn-arrow">›</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-tagline">
+      <span>Innovate</span> &nbsp;•&nbsp; <span>Build</span> &nbsp;•&nbsp; <span>Elevate</span>
+    </p>
+    <p class="footer-copy">© 2025 Ganora Technologies. All rights reserved.</p>
+  </footer>
+
+</main>
+
+<script>
+  // ── Floating particles
+  const container = document.getElementById('particles');
+  const count = 22;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.setProperty('--dur',   `${10 + Math.random() * 14}s`);
+    p.style.setProperty('--delay', `${Math.random() * 12}s`);
+    p.style.setProperty('--drift', `${(Math.random() - 0.5) * 80}px`);
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.width  = `${1 + Math.random() * 1.5}px`;
+    p.style.height = p.style.width;
+    p.style.opacity = String(0.1 + Math.random() * 0.3);
+    container.appendChild(p);
+  }
+
+  // ── Subtle parallax on mouse move
+  document.addEventListener('mousemove', (e) => {
+    const xPct = (e.clientX / window.innerWidth  - 0.5) * 2;
+    const yPct = (e.clientY / window.innerHeight - 0.5) * 2;
+    const halo = document.querySelector('.logo-halo');
+    if (halo) {
+      halo.style.transform = `translate(${xPct * 6}px, ${yPct * 4}px)`;
+    }
+  });
+</script>
+</body>
+</html>
